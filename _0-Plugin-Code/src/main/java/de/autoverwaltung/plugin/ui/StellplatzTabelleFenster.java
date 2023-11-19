@@ -73,7 +73,8 @@ public class StellplatzTabelleFenster extends JFrame {
 
         int i = 0;
         for (Motorrad motorrad : motorraeder) {
-            motorradData[i][0] = motorrad.getStellPlatzID();
+            Stellplatz temp = (Stellplatz) ReadManager.getInstance().read(motorrad.getStellPlatzID());
+            motorradData[i][0] = temp.getName();
             motorradData[i][1] = motorrad.getMarke();
             motorradData[i][2] = motorrad.getModell();
             motorradData[i][3] = motorrad.getPreis();
