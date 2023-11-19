@@ -11,7 +11,6 @@ import java.awt.*;
 import java.util.List;
 
 public class StellplatzTabelleFenster extends JFrame {
-
     public StellplatzTabelleFenster(String gebaeudeId) {
         setTitle("Stellplätze im Gebäude");
         setSize(700, 600); // Erhöhte Größe für zwei Tabellen

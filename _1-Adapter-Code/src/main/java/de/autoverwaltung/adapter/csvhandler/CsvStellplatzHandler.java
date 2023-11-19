@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CsvStellplatzHandler implements ICsvUpdater {
-    private static final String CSV_FILE_PATH = "C:\\SAPDevelop\\SWE_Advanced\\Autohaus\\resources\\CSV\\stellplaetze.csv";
+    private static final String CSV_FILE_PATH = "_1-Adapter-Code\\src\\main\\resources\\CSV\\stellplaetze.csv";
 
 
     public void updateStellplatz(String stellPlatzID, String fahrzeugID) throws IOException {

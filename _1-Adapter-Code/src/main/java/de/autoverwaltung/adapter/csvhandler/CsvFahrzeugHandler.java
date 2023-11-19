@@ -17,8 +17,8 @@ public class CsvFahrzeugHandler implements ICsvUpdater {
         stellplatzHandler = new CsvStellplatzHandler();
     }
 
-    private static final String CSV_FILE_PATH_AUTOS = "C:\\SAPDevelop\\SWE_Advanced\\Autohaus\\resources\\CSV\\autos.csv";
-    private static final String CSV_FILE_PATH_MOTORRAEDER = "C:\\SAPDevelop\\SWE_Advanced\\Autohaus\\resources\\CSV\\motorrad.csv";
+    private static final String CSV_FILE_PATH_AUTOS = "_1-Adapter-Code\\src\\main\\resources\\CSV\\autos.csv";
+    private static final String CSV_FILE_PATH_MOTORRAEDER = "_1-Adapter-Code\\src\\main\\resources\\CSV\\motorrad.csv";
 
     @Override
     public void eintragLoeschen(Object object) {

@@ -14,8 +14,7 @@ public class GesamtLoader {
 
     public <T extends IEinzigartig> void datenLaden() {
         List<T> entities = new ArrayList<>();
-        String csvPath = "C:\\SAPDevelop\\SWE_Advanced\\Autohaus\\resources\\CSV\\";
-
+        String csvPath = "_1-Adapter-Code\\src\\main\\resources\\CSV\\";
         CsvAutoLoader autoLoader = new CsvAutoLoader(csvPath + "autos.csv");
         entities.addAll(autoLoader.loadAutos());
 
@@ -31,7 +30,6 @@ public class GesamtLoader {
         for (T entity : entities) {
             CreateManager.getInstance().create(entity);
         }
-        System.out.println(entities.size());
         System.out.println("Daten geladen");
     }
 

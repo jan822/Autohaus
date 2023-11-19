@@ -56,7 +56,6 @@ public class Startbildschirm extends JFrame {
         }
 
         JSeparator separator2 = new JSeparator();
-        gebaeudePanel.add(new JButton("Alle Autos von allen Gebäuden"));
         gebaeudePanel.add(separator2);
 
         // Footer mit Buttons
