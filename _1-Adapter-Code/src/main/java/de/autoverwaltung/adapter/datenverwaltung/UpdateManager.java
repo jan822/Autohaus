@@ -1,4 +1,4 @@
-package de.autoverwaltung.plugin.datenverwaltung;
+package de.autoverwaltung.adapter.datenverwaltung;
 
 import de.autoverwaltung.domain.IEinzigartig;
 import de.autoverwaltung.domain.IUpdate;

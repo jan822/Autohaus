@@ -2,19 +2,12 @@ package de.autoverwaltung.plugin.ui;
 
 import de.autoverwaltung.domain.IEinzigartig;
 import de.autoverwaltung.domain.gebaeude.Gebaeude;
-import de.autoverwaltung.plugin.datenverwaltung.DatenRepository;
-import de.autoverwaltung.plugin.datenverwaltung.ReadManager;
+import de.autoverwaltung.adapter.datenverwaltung.ReadManager;
 
 import javax.swing.*;
 import java.awt.*;
 
-import javax.swing.*;
-import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 public class Startbildschirm extends JFrame {
 

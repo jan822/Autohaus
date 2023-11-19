@@ -3,12 +3,11 @@ package de.autoverwaltung.plugin.ui;
 import de.autoverwaltung.adapter.csvhandler.CsvAutoHandler;
 import de.autoverwaltung.application.guicontroller.AutoVerkaufManager;
 import de.autoverwaltung.application.guicontroller.GebaeudeFahrzeugManager;
-import de.autoverwaltung.domain.IRead;
 import de.autoverwaltung.domain.fahrzeug.Auto;
 import de.autoverwaltung.domain.gebaeude.Gebaeude;
-import de.autoverwaltung.plugin.datenverwaltung.DeleteManager;
-import de.autoverwaltung.plugin.datenverwaltung.ReadManager;
-import de.autoverwaltung.plugin.datenverwaltung.UpdateManager;
+import de.autoverwaltung.adapter.datenverwaltung.DeleteManager;
+import de.autoverwaltung.adapter.datenverwaltung.ReadManager;
+import de.autoverwaltung.adapter.datenverwaltung.UpdateManager;
 
 import javax.swing.*;
 import java.awt.*;

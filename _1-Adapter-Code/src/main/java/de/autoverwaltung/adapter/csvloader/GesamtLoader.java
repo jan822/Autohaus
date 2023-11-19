@@ -1,9 +1,7 @@
-package de.autoverwaltung.plugin.csvloader;
+package de.autoverwaltung.adapter.csvloader;
 
 import de.autoverwaltung.domain.IEinzigartig;
-import de.autoverwaltung.domain.fahrzeug.Auto;
-import de.autoverwaltung.plugin.datenverwaltung.CreateManager;
-import de.autoverwaltung.plugin.datenverwaltung.DatenRepository;
+import de.autoverwaltung.adapter.datenverwaltung.CreateManager;
 
 import java.util.ArrayList;
 import java.util.List;

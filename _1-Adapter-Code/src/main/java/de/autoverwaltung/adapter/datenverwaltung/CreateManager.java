@@ -1,11 +1,7 @@
-package de.autoverwaltung.plugin.datenverwaltung;
-
+package de.autoverwaltung.adapter.datenverwaltung;
 
 import de.autoverwaltung.domain.ICreate;
 import de.autoverwaltung.domain.IEinzigartig;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class CreateManager<T extends IEinzigartig> implements ICreate<T> {
     private static CreateManager<?> instance;

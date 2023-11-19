@@ -2,7 +2,6 @@ package de.autoverwaltung.plugin.ui;
 
 import de.autoverwaltung.adapter.csvhandler.CsvAutoHandler;
 import de.autoverwaltung.adapter.csvhandler.CsvStellplatzHandler;
-import de.autoverwaltung.application.guicontroller.AutoVerkaufManager;
 import de.autoverwaltung.application.guicontroller.FahrzeugUmparkenManager;
 import de.autoverwaltung.application.guicontroller.GebaeudeFahrzeugManager;
 import de.autoverwaltung.application.guicontroller.GebaeudeStellplatzManager;
@@ -11,9 +10,8 @@ import de.autoverwaltung.domain.fahrzeug.Fahrzeug;
 import de.autoverwaltung.domain.fahrzeug.Motorrad;
 import de.autoverwaltung.domain.gebaeude.Gebaeude;
 import de.autoverwaltung.domain.gebaeude.Stellplatz;
-import de.autoverwaltung.plugin.datenverwaltung.DeleteManager;
-import de.autoverwaltung.plugin.datenverwaltung.ReadManager;
-import de.autoverwaltung.plugin.datenverwaltung.UpdateManager;
+import de.autoverwaltung.adapter.datenverwaltung.ReadManager;
+import de.autoverwaltung.adapter.datenverwaltung.UpdateManager;
 
 import javax.swing.*;
 import java.awt.*;

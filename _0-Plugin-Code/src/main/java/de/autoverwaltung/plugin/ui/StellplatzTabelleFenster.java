@@ -1,11 +1,9 @@
 package de.autoverwaltung.plugin.ui;
 
 import de.autoverwaltung.application.guicontroller.GebaeudeFahrzeugManager;
-import de.autoverwaltung.application.guicontroller.GebaeudeStellplatzManager;
 import de.autoverwaltung.domain.fahrzeug.Auto;
 import de.autoverwaltung.domain.fahrzeug.Motorrad;
-import de.autoverwaltung.domain.gebaeude.Stellplatz;
-import de.autoverwaltung.plugin.datenverwaltung.ReadManager;
+import de.autoverwaltung.adapter.datenverwaltung.ReadManager;
 
 import javax.swing.*;
 import java.awt.*;

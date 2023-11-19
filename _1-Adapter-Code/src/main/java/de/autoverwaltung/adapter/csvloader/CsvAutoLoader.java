@@ -1,4 +1,4 @@
-package de.autoverwaltung.plugin.csvloader;
+package de.autoverwaltung.adapter.csvloader;
 
 
 import de.autoverwaltung.domain.IEinzigartig;

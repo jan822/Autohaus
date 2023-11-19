@@ -1,8 +1,7 @@
 package de.autoverwaltung.plugin;
 
-import de.autoverwaltung.plugin.csvloader.CsvGebaeudeLoader;
-import de.autoverwaltung.plugin.csvloader.GesamtLoader;
-import de.autoverwaltung.plugin.datenverwaltung.*;
+import de.autoverwaltung.adapter.datenverwaltung.*;
+import de.autoverwaltung.adapter.csvloader.GesamtLoader;
 import de.autoverwaltung.plugin.ui.Startbildschirm;
 
 import javax.swing.*;

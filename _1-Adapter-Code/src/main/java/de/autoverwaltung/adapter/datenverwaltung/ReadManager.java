@@ -1,10 +1,8 @@
-package de.autoverwaltung.plugin.datenverwaltung;
+package de.autoverwaltung.adapter.datenverwaltung;
 
 import de.autoverwaltung.domain.IEinzigartig;
 import de.autoverwaltung.domain.IRead;
-import de.autoverwaltung.domain.ISingleton;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;

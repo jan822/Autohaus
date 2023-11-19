@@ -7,10 +7,9 @@ import de.autoverwaltung.application.guicontroller.GebaeudeStellplatzManager;
 import de.autoverwaltung.domain.fahrzeug.Autotyp;
 import de.autoverwaltung.domain.gebaeude.Gebaeude;
 import de.autoverwaltung.domain.gebaeude.Stellplatz;
-import de.autoverwaltung.plugin.csvloader.CsvAutoLoader;
-import de.autoverwaltung.plugin.datenverwaltung.CreateManager;
-import de.autoverwaltung.plugin.datenverwaltung.ReadManager;
-import de.autoverwaltung.plugin.datenverwaltung.UpdateManager;
+import de.autoverwaltung.adapter.datenverwaltung.CreateManager;
+import de.autoverwaltung.adapter.datenverwaltung.ReadManager;
+import de.autoverwaltung.adapter.datenverwaltung.UpdateManager;
 
 import javax.swing.*;
 import java.awt.*;
