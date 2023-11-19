@@ -37,16 +37,21 @@ public class CsvFahrzeugHandler implements ICsvUpdater {
             e.printStackTrace();
             return;
         }
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-            for (String line : zeilenBehalten) {
-                writer.write(line);
-                writer.newLine();
+            int size = zeilenBehalten.size();
+            for (int i = 0; i < size; i++) {
+                writer.write(zeilenBehalten.get(i));
+                if (i < size - 1) {
+                    writer.newLine();
+                }
             }
             stellplatzHandler.updateStellplatz(fahrzeug.getStellPlatzID(), "");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void eintragHinzufuegen(Object fahrzeug) {

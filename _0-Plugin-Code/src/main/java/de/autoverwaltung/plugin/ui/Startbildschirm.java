@@ -19,9 +19,9 @@ public class Startbildschirm extends JFrame {
 
         // Header mit Buttons
         JPanel headerPanel = new JPanel(new BorderLayout());
-        JButton addButton = new JButton("Auto hinzufügen");
+        JButton addButton = new JButton("Fahrzeug hinzufügen");
         addButton.addActionListener(e -> {
-            AutoEingabeFenster eingabeFenster = new AutoEingabeFenster();
+            FahrzeugEingabeFenster eingabeFenster = new FahrzeugEingabeFenster();
             eingabeFenster.setVisible(true);
         });
 

@@ -4,6 +4,7 @@ import de.autoverwaltung.application.guicontroller.GebaeudeFahrzeugManager;
 import de.autoverwaltung.domain.fahrzeug.Auto;
 import de.autoverwaltung.domain.fahrzeug.Motorrad;
 import de.autoverwaltung.adapter.datenverwaltung.ReadManager;
+import de.autoverwaltung.domain.gebaeude.Stellplatz;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,9 +32,6 @@ public class StellplatzTabelleFenster extends JFrame {
     }
 
     private JScrollPane createAutoTabelle(String gebaeudeId) {
-        // GebaeudeStellplatzManager platzManager = new GebaeudeStellplatzManager(gebaeudeId, ReadManager.getInstance());
-        // List<Stellplatz> belegteStellplaetze = platzManager.getBelegteStellplaetzeInGebaeude();
-
         GebaeudeFahrzeugManager manager = new GebaeudeFahrzeugManager(gebaeudeId, ReadManager.getInstance());
         List<Auto> fahrzeuge = manager.getAutosInGebaeude();
 
@@ -44,7 +42,8 @@ public class StellplatzTabelleFenster extends JFrame {
 
         int i = 0;
         for (Auto auto : fahrzeuge) {
-            data[i][0] = auto.getStellPlatzID();
+            Stellplatz temp = (Stellplatz) ReadManager.getInstance().read(auto.getStellPlatzID());
+            data[i][0] = temp.getName();
             data[i][1] = auto.getMarke();
             data[i][2] = auto.getModell();
             data[i][3] = auto.getPreis();
