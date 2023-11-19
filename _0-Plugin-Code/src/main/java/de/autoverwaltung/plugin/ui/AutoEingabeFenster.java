@@ -1,7 +1,7 @@
 package de.autoverwaltung.plugin.ui;
 
 
-import de.autoverwaltung.adapter.csvhandler.CsvAutoHandler;
+import de.autoverwaltung.adapter.csvhandler.CsvFahrzeugHandler;
 import de.autoverwaltung.application.guicontroller.AutoErstellManager;
 import de.autoverwaltung.application.guicontroller.GebaeudeStellplatzManager;
 import de.autoverwaltung.domain.fahrzeug.Autotyp;
@@ -99,7 +99,7 @@ public class AutoEingabeFenster extends JFrame {
         Autotyp autotyp = (Autotyp) cmbAutotyp.getSelectedItem();
         double kofferraumvolumen = Double.parseDouble(txtKofferraumvolumen.getText());
 
-        AutoErstellManager controller = new AutoErstellManager(CreateManager.getInstance(), new CsvAutoHandler(), UpdateManager.getInstance());
+        AutoErstellManager controller = new AutoErstellManager(CreateManager.getInstance(), new CsvFahrzeugHandler(), UpdateManager.getInstance());
         controller.speichern(marke, modell, preis, kilometer, tuev, anzahlTueren, navigationssystem, anzahlSitzplaetze, autotyp, kofferraumvolumen, (Stellplatz) cmbStellplatz.getSelectedItem());
         dispose();
     }

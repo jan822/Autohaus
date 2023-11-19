@@ -6,11 +6,10 @@ import de.autoverwaltung.plugin.ui.Startbildschirm;
 
 import javax.swing.*;
 
-public class Autohaus {
-// Auto verkaufen: csv autoID von belegtem Stellplatz löschen/ zeile updaten
-// Fahrzeug umparken: auto.csv stellPlatzId updaten, in stellplaetze.csv fahrzeugID von alten Stellplatz löschen und bei neunem Stellplatz einfügen ++++ entity manager
-    public static void main(String[] args) {
 
+// relative Pfade! , JUnit Tests
+public class Autohaus {
+    public static void main(String[] args) {
         // Datentruktur und Manager initialisieren
         DatenRepository.getInstance();
         CreateManager.getInstance();

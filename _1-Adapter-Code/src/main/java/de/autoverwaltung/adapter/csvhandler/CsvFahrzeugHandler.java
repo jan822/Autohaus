@@ -7,14 +7,13 @@ import de.autoverwaltung.domain.fahrzeug.Fahrzeug;
 import de.autoverwaltung.domain.fahrzeug.Motorrad;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CsvAutoHandler implements ICsvUpdater {
+public class CsvFahrzeugHandler implements ICsvUpdater {
     private CsvStellplatzHandler stellplatzHandler;
-    public CsvAutoHandler() {
+
+    public CsvFahrzeugHandler() {
         stellplatzHandler = new CsvStellplatzHandler();
     }
 
@@ -23,13 +22,14 @@ public class CsvAutoHandler implements ICsvUpdater {
 
     @Override
     public void eintragLoeschen(Object object) {
-        Auto auto = (Auto) object;
+        Fahrzeug fahrzeug = (Fahrzeug) object;
+        String path = fahrzeug instanceof Auto ? CSV_FILE_PATH_AUTOS : CSV_FILE_PATH_MOTORRAEDER;
         List<String> zeilenBehalten = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_AUTOS))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                if (!line.contains(auto.getId())) {
+                if (!line.contains(fahrzeug.getId())) {
                     zeilenBehalten.add(line);
                 }
             }
@@ -37,25 +37,26 @@ public class CsvAutoHandler implements ICsvUpdater {
             e.printStackTrace();
             return;
         }
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH_AUTOS))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             for (String line : zeilenBehalten) {
                 writer.write(line);
                 writer.newLine();
             }
-            stellplatzHandler.updateStellplatz(auto.getStellPlatzID(), "");
+            stellplatzHandler.updateStellplatz(fahrzeug.getStellPlatzID(), "");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @Override
-    public void eintragHinzufuegen(Object auto) {
-        String newLine = buildCsvLine((Auto) auto);
+    public void eintragHinzufuegen(Object fahrzeug) {
+        String newLine = buildCsvLine((Fahrzeug) fahrzeug);
+        String path = fahrzeug instanceof Auto ? CSV_FILE_PATH_AUTOS : CSV_FILE_PATH_MOTORRAEDER;
         try {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH_AUTOS, true))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
                 writer.newLine();
                 writer.write(newLine);
-                stellplatzHandler.updateStellplatz(((Auto) auto).getStellPlatzID(), ((Auto) auto).getId());
+                stellplatzHandler.updateStellplatz(((Fahrzeug) fahrzeug).getStellPlatzID(), ((Fahrzeug) fahrzeug).getId());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -107,7 +108,7 @@ public class CsvAutoHandler implements ICsvUpdater {
     }
 
     private String buildCsvLine(Fahrzeug fahrzeug) {
-        if(fahrzeug instanceof Auto) {
+        if (fahrzeug instanceof Auto) {
             Auto auto = (Auto) fahrzeug;
             return String.join(",",
                     auto.getId(),

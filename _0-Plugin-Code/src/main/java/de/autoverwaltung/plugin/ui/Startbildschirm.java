@@ -24,12 +24,12 @@ public class Startbildschirm extends JFrame {
             AutoEingabeFenster eingabeFenster = new AutoEingabeFenster();
             eingabeFenster.setVisible(true);
         });
-        JButton sellButton = new JButton("Auto verkaufen");
+
+        JButton sellButton = new JButton("Fahrzeug verkaufen");
         sellButton.addActionListener(e -> {
-            AutoVerkaufFenster verkaufFenster = new AutoVerkaufFenster();
+            FahrzeugVerkaufFenster verkaufFenster = new FahrzeugVerkaufFenster();
             verkaufFenster.setVisible(true);
         });
-
 
         headerPanel.add(addButton, BorderLayout.WEST);
         headerPanel.add(sellButton, BorderLayout.EAST);

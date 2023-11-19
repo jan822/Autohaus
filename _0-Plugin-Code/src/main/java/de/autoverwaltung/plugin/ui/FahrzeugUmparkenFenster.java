@@ -1,6 +1,6 @@
 package de.autoverwaltung.plugin.ui;
 
-import de.autoverwaltung.adapter.csvhandler.CsvAutoHandler;
+import de.autoverwaltung.adapter.csvhandler.CsvFahrzeugHandler;
 import de.autoverwaltung.adapter.csvhandler.CsvStellplatzHandler;
 import de.autoverwaltung.application.guicontroller.FahrzeugUmparkenManager;
 import de.autoverwaltung.application.guicontroller.GebaeudeFahrzeugManager;
@@ -102,7 +102,7 @@ public class FahrzeugUmparkenFenster extends JFrame {
         Stellplatz neuerStellplatz = (Stellplatz) cmbStellplatz2.getSelectedItem();
 
         if (ausgewaehltesFahrzeug != null && neuerStellplatz != null) {
-            FahrzeugUmparkenManager umparkenManager = new FahrzeugUmparkenManager(UpdateManager.getInstance(), new CsvAutoHandler(), new CsvStellplatzHandler());
+            FahrzeugUmparkenManager umparkenManager = new FahrzeugUmparkenManager(UpdateManager.getInstance(), new CsvFahrzeugHandler(), new CsvStellplatzHandler());
             umparkenManager.fahrzeugUmparken(ausgewaehltesFahrzeug, alterStellplatz, neuerStellplatz);
             dispose();
             JOptionPane.showMessageDialog(this, "Fahrzeug wurde umgeparkt.");
