@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>_0-Plugin-Code</artifactId>
+            <artifactId>_3-Domain-Code</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

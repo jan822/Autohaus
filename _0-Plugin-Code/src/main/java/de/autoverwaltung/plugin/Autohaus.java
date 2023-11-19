@@ -6,19 +6,18 @@ import de.autoverwaltung.plugin.datenverwaltung.*;
 import de.autoverwaltung.plugin.ui.Startbildschirm;
 
 import javax.swing.*;
-import java.io.IOException;
 
 public class Autohaus {
-    // public static DataReader dataReader;
-
+// Auto verkaufen: csv eintrag von auto löschen, csv autoID von belegtem Stellplatz löschen/ zeile updaten +++ entity manager auto instanz löschen, belegtem Stellplatz auf null sezten
+// Fahrzeug umparken: auto.csv stellPlatzId updaten, in stellplaetze.csv fahrzeugID von alten Stellplatz löschen und bei neunem Stellplatz einfügen ++++ entity manager
     public static void main(String[] args) {
 
         // Datentruktur und Manager initialisieren
-        DatenRepository datenRepository = DatenRepository.getInstance();
-        CreateManager createManager = CreateManager.getInstance();
-        DeleteManager deleteManager = DeleteManager.getInstance();
-        ReadManager readManager = ReadManager.getInstance();
-        UpdateManager updateManager = UpdateManager.getInstance();
+        DatenRepository.getInstance();
+        CreateManager.getInstance();
+        DeleteManager.getInstance();
+        ReadManager.getInstance();
+        UpdateManager.getInstance();
 
         // Daten laden
         GesamtLoader gesamtLoader = new GesamtLoader();

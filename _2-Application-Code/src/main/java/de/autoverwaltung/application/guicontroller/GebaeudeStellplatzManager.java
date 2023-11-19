@@ -1,37 +1,36 @@
 package de.autoverwaltung.application.guicontroller;
 
+import de.autoverwaltung.domain.IEinzigartig;
+import de.autoverwaltung.domain.IRead;
 import de.autoverwaltung.domain.fahrzeug.Auto;
 import de.autoverwaltung.domain.gebaeude.Gebaeude;
 import de.autoverwaltung.domain.gebaeude.Stellplatz;
-import de.autoverwaltung.plugin.datenverwaltung.ReadManager;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class GebaeudeStellplatzManager {
     private Gebaeude gebaeude;
+    private IRead readManager;
 
-    public GebaeudeStellplatzManager(String gebaeudeId) {
-        gebaeude = (Gebaeude) ReadManager.getInstance().read(gebaeudeId);
+    public GebaeudeStellplatzManager(String gebaeudeId, IRead readManager) {
+        this.readManager = readManager;
+        gebaeude = (Gebaeude) this.readManager.read(gebaeudeId);
     }
 
-    // public List<Stellplatz> getStellplaetzeInGebaeude(String gebaeudeId) {
-    //     // Annahme: Stellplätze sind im DatenRepository gespeichert und haben eine Referenz zum Gebäude
-    //     return datenRepository.readAlleDaten().values().stream()
-    //             .filter(e -> e instanceof Stellplatz)
-    //             .map(e -> (Stellplatz) e)
-    //             .filter(s -> gebaeudeId.equals(s.getGebaeudeID()))
-    //             .collect(Collectors.toList());
-    // }
-    //
-    // public Auto getAutoByStellplatzId(String stellplatzId) {
-    //     // Annahme: Autos sind im DatenRepository gespeichert und haben eine Referenz zum Stellplatz
-    //     return datenRepository.readAlleDaten().values().stream()
-    //             .filter(e -> e instanceof Auto)
-    //             .map(e -> (Auto) e)
-    //             .filter(a -> stellplatzId.equals(a.getStellPlatzID()))
-    //             .findFirst()
-    //             .orElse(null);
-    // }
+    //alle Stellplätze vom Gebäude
+    public <T extends IEinzigartig> List<Stellplatz> getStellplaetzeInGebaeude() {
+        List<Stellplatz> alleStellPlätze = readManager.readAlleDatenNachKlasse(Stellplatz.class);
+        return alleStellPlätze.stream().filter(el -> el.getGebaeudeID().equals(gebaeude.getID())).collect(Collectors.toList());
+    }
+
+    public <T extends IEinzigartig> List<Stellplatz> getBelegteStellplaetzeInGebaeude() {
+        List<Stellplatz> allePlätze = getStellplaetzeInGebaeude();
+        return allePlätze.stream().filter(el -> el.getFahrzeugID() != null).collect(Collectors.toList());
+    }
+    public <T extends IEinzigartig> List<Stellplatz> getNichtBelegteStellplaetzeInGebaeude() {
+        List<Stellplatz> allePlätze = getStellplaetzeInGebaeude();
+        return allePlätze.stream().filter(el -> el.getFahrzeugID() == null).collect(Collectors.toList());
+    }
 
 }

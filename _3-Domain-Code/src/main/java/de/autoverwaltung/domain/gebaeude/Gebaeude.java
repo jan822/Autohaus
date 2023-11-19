@@ -38,4 +38,9 @@ public class Gebaeude implements IEinzigartig {
     public Object getID() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

@@ -27,6 +27,9 @@ public class GesamtLoader {
         CsvStellplatzLoader stellplatzLoader = new CsvStellplatzLoader(csvPath + "stellplaetze.csv");
         entities.addAll(stellplatzLoader.loadStellplaetze());
 
+        CsvMotorradLoader motorradLoader = new CsvMotorradLoader(csvPath + "motorrad.csv");
+        entities.addAll(motorradLoader.loadMotorraeder());
+
         for (T entity : entities) {
             CreateManager.getInstance().create(entity);
         }

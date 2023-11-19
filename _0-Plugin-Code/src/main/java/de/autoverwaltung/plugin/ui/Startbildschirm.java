@@ -27,6 +27,10 @@ public class Startbildschirm extends JFrame {
         // Header mit Buttons
         JPanel headerPanel = new JPanel(new BorderLayout());
         JButton addButton = new JButton("Auto hinzufügen");
+        addButton.addActionListener(e -> {
+            AutoEingabeFenster eingabeFenster = new AutoEingabeFenster(this);
+            eingabeFenster.setVisible(true);
+        });
         JButton sellButton = new JButton("Auto verkaufen");
         headerPanel.add(addButton, BorderLayout.WEST);
         headerPanel.add(sellButton, BorderLayout.EAST);
@@ -37,7 +41,7 @@ public class Startbildschirm extends JFrame {
         gebaeudePanel.add(new JLabel("Gebäude", SwingConstants.LEFT));
 
 
-        // Beispiel: Buttons für Gebäude
+        // Buttons für Gebäude
         ReadManager.getInstance().readAlleDaten();
         List<Gebaeude> gebaeude = ReadManager.getInstance().readAlleDatenNachKlasse(Gebaeude.class);
 
@@ -45,6 +49,11 @@ public class Startbildschirm extends JFrame {
             JButton gebaeudeButton = new JButton(gebaeude1.getName());
             gebaeudePanel.add(gebaeudeButton);
             gebaeudeButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Zentriert die Buttons
+
+            gebaeudeButton.addActionListener(e -> {
+                StellplatzTabelleFenster tabelleFenster = new StellplatzTabelleFenster(gebaeude1.getId());
+                tabelleFenster.setVisible(true);
+            });
         }
 
         JSeparator separator2 = new JSeparator();
@@ -62,6 +71,10 @@ public class Startbildschirm extends JFrame {
         add(headerPanel, BorderLayout.NORTH);
         add(gebaeudePanel, BorderLayout.CENTER);
         add(footerPanel, BorderLayout.SOUTH);
+    }
+
+    public void ladeNeueDaten() {
+        // Logik zum Neuladen der Daten und Aktualisieren der Anzeige
     }
 }
 

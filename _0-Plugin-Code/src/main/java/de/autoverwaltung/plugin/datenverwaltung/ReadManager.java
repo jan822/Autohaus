@@ -2,6 +2,7 @@ package de.autoverwaltung.plugin.datenverwaltung;
 
 import de.autoverwaltung.domain.IEinzigartig;
 import de.autoverwaltung.domain.IRead;
+import de.autoverwaltung.domain.ISingleton;
 
 import java.util.Date;
 import java.util.List;
@@ -12,7 +13,6 @@ public class ReadManager<T extends IEinzigartig> implements IRead<T> {
     private static ReadManager<?> instance;
 
     private ReadManager() {
-
     }
 
     public static synchronized <T extends IEinzigartig> ReadManager<T> getInstance() {

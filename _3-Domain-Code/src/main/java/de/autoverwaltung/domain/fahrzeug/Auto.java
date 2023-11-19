@@ -23,8 +23,6 @@ public class Auto extends Fahrzeug {
         return navigationssystem;
     }
 
-
-
     public void setNavigationssystem(boolean navigationssystem) {
         this.navigationssystem = navigationssystem;
     }
