@@ -1,12 +1,16 @@
 package de.autoverwaltung.adapter.csvhandler;
 
+import de.autoverwaltung.application.guicontroller.ICsvUpdater;
+import de.autoverwaltung.domain.fahrzeug.Auto;
+import de.autoverwaltung.domain.gebaeude.Stellplatz;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CsvStellplatzHandler {
+public class CsvStellplatzHandler implements ICsvUpdater {
     private static final String CSV_FILE_PATH = "C:\\SAPDevelop\\SWE_Advanced\\Autohaus\\resources\\CSV\\stellplaetze.csv";
 
 
@@ -40,6 +44,57 @@ public class CsvStellplatzHandler {
                 writer.newLine();
             }
         }
+    }
+
+    @Override
+    public void eintragLoeschen(Object object) {
+
+    }
+
+    @Override
+    public void eintragHinzufuegen(Object object) {
+
+    }
+
+    @Override
+    public void eintragAendern(Object obj) {
+        Stellplatz stellplatz = (Stellplatz) obj;
+        List<String> updatedLines = new ArrayList<>();
+        String updatedLine = buildCsvLine(stellplatz);
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith(stellplatz.getID())) {
+                    // Ersetzen der Zeile mit den aktualisierten Informationen
+                    updatedLines.add(updatedLine);
+                } else {
+                    updatedLines.add(line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH))) {
+            for (String line : updatedLines) {
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String buildCsvLine(Stellplatz stellplatz) {
+        return String.join(",",
+                stellplatz.getID(),
+                stellplatz.getFahrzeugID(),
+                stellplatz.getGebaeudeID(),
+                stellplatz.getName()
+        );
+
     }
 }
 

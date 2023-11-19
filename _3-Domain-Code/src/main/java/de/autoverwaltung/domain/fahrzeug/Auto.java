@@ -50,4 +50,5 @@ public class Auto extends Fahrzeug {
     public void setKofferraumvolumen(double kofferraumvolumen) {
         this.kofferraumvolumen = kofferraumvolumen;
     }
+
 }

@@ -28,10 +28,16 @@ public class Startbildschirm extends JFrame {
         JPanel headerPanel = new JPanel(new BorderLayout());
         JButton addButton = new JButton("Auto hinzufügen");
         addButton.addActionListener(e -> {
-            AutoEingabeFenster eingabeFenster = new AutoEingabeFenster(this);
+            AutoEingabeFenster eingabeFenster = new AutoEingabeFenster();
             eingabeFenster.setVisible(true);
         });
         JButton sellButton = new JButton("Auto verkaufen");
+        sellButton.addActionListener(e -> {
+            AutoVerkaufFenster verkaufFenster = new AutoVerkaufFenster();
+            verkaufFenster.setVisible(true);
+        });
+
+
         headerPanel.add(addButton, BorderLayout.WEST);
         headerPanel.add(sellButton, BorderLayout.EAST);
 
@@ -64,6 +70,11 @@ public class Startbildschirm extends JFrame {
         JPanel footerPanel = new JPanel(new BorderLayout());
         JButton homeButton = new JButton("Startseite");
         JButton parkButton = new JButton("Fahrzeug umparken");
+        parkButton.addActionListener(e -> {
+                FahrzeugUmparkenFenster fahrzeugUmparkFenster = new FahrzeugUmparkenFenster();
+                fahrzeugUmparkFenster.setVisible(true);
+                }
+        );
         footerPanel.add(homeButton, BorderLayout.CENTER);
         footerPanel.add(parkButton, BorderLayout.EAST);
 
@@ -71,10 +82,6 @@ public class Startbildschirm extends JFrame {
         add(headerPanel, BorderLayout.NORTH);
         add(gebaeudePanel, BorderLayout.CENTER);
         add(footerPanel, BorderLayout.SOUTH);
-    }
-
-    public void ladeNeueDaten() {
-        // Logik zum Neuladen der Daten und Aktualisieren der Anzeige
     }
 }
 

@@ -32,7 +32,7 @@ public class AutoErstellManager {
         createManager.create(auto);
         gewaehlterStellplatz.setFahrzeugID(id);
         updateManager.update(gewaehlterStellplatz);
-        autoICsvUpdater.updateCsv(auto);
+        autoICsvUpdater.eintragHinzufuegen(auto);
     }
 }
 

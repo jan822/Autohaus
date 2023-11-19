@@ -8,7 +8,7 @@ import de.autoverwaltung.plugin.ui.Startbildschirm;
 import javax.swing.*;
 
 public class Autohaus {
-// Auto verkaufen: csv eintrag von auto löschen, csv autoID von belegtem Stellplatz löschen/ zeile updaten +++ entity manager auto instanz löschen, belegtem Stellplatz auf null sezten
+// Auto verkaufen: csv autoID von belegtem Stellplatz löschen/ zeile updaten
 // Fahrzeug umparken: auto.csv stellPlatzId updaten, in stellplaetze.csv fahrzeugID von alten Stellplatz löschen und bei neunem Stellplatz einfügen ++++ entity manager
     public static void main(String[] args) {
 

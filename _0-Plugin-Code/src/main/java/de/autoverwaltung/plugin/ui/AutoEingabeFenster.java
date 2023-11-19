@@ -24,11 +24,9 @@ public class AutoEingabeFenster extends JFrame {
     private JComboBox<Gebaeude> cmbGebaeude;
 
     private JComboBox<Stellplatz> cmbStellplatz;
-    private Startbildschirm startbildschirm;
 
 
-    public AutoEingabeFenster(Startbildschirm startbildschirm) {
-        this.startbildschirm = startbildschirm;
+    public AutoEingabeFenster() {
         setTitle("Neues Auto eingeben");
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -105,7 +103,6 @@ public class AutoEingabeFenster extends JFrame {
         AutoErstellManager controller = new AutoErstellManager(CreateManager.getInstance(), new CsvAutoHandler(), UpdateManager.getInstance());
         controller.speichern(marke, modell, preis, kilometer, tuev, anzahlTueren, navigationssystem, anzahlSitzplaetze, autotyp, kofferraumvolumen, (Stellplatz) cmbStellplatz.getSelectedItem());
         dispose();
-        startbildschirm.ladeNeueDaten();
     }
 
 
