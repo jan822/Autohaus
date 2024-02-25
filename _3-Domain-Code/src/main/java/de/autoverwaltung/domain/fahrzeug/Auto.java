@@ -7,8 +7,8 @@ public class Auto extends Fahrzeug {
     private Autotyp autotyp;
     private double kofferraumvolumen;
 
-    public Auto(String id, String marke, String modell, double preis, int kilometer, boolean tuev) {
-        super(id, marke, modell, preis, kilometer, tuev);
+    public Auto(String id, String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev) {
+        super(id, marke, modell, preis, waehrung, kilometer, tuev);
     }
 
     public int getAnzahlTueren() {

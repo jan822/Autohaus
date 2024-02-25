@@ -1,6 +1,6 @@
-ID,stellPlatzID,Marke,Modell,Preis,Kilometer,TUEV,AnzahlTueren,Navigationssystem,AnzahlSitzplaetze,Autotyp,Kofferraumvolumen
-2a4fbc9a-3ee5-44a1-a5cd-42e45dbf741d,157b4892-67de-419f-9ea9-43437b357a48,Volkswagen,Golf,20000,50000,true,4,true,5,LIMOUSINE,380
-f9563767-5ff0-46e2-85fa-c28d1fe6c0bb,2bf7a660-9fd6-4157-8dd5-f87430dfb756,Audi,A4,35000,25000,true,4,true,5,KOMBI,460,
-f5f662f0-9a0f-4ee3-9b14-5b3ea77ba3cf,5665f4ff-2e63-4115-a9b6-cf7444bbc470,Mercedes,C-Klasse,40000,30000,true,4,true,5,LIMOUSINE,480
-5cbf1413-5309-4cec-9139-085174493cfa,55b36568-0908-4532-9537-904d4645ee2a,BMW,3er,37000,40000,false,4,true,5,KOMBI,450
-12ecafde-d18c-4f64-9f97-d9a32856f1ca,6eedbe14-9df0-45a4-9f36-ddb04074854e,Porsche,911,120000,10000,true,2,false,2,SPORTWAGEN,300
+ID,stellPlatzID,Marke,Modell,Preis,Waehrung,Kilometer,TUEV,AnzahlTueren,Navigationssystem,AnzahlSitzplaetze,Autotyp,Kofferraumvolumen
+2a4fbc9a-3ee5-44a1-a5cd-42e45dbf741d,157b4892-67de-419f-9ea9-43437b357a48,Volkswagen,Golf,20000,EUR,50000,true,4,true,5,LIMOUSINE,380
+f9563767-5ff0-46e2-85fa-c28d1fe6c0bb,2bf7a660-9fd6-4157-8dd5-f87430dfb756,Audi,A4,35000,EUR,25000,true,4,true,5,KOMBI,460,
+f5f662f0-9a0f-4ee3-9b14-5b3ea77ba3cf,5665f4ff-2e63-4115-a9b6-cf7444bbc470,Mercedes,C-Klasse,40000,EUR,30000,true,4,true,5,LIMOUSINE,480
+5cbf1413-5309-4cec-9139-085174493cfa,55b36568-0908-4532-9537-904d4645ee2a,BMW,3er,37000,EUR,40000,false,4,true,5,KOMBI,450
+12ecafde-d18c-4f64-9f97-d9a32856f1ca,6eedbe14-9df0-45a4-9f36-ddb04074854e,Porsche,911,120000,EUR,10000,true,2,false,2,SPORTWAGEN,300

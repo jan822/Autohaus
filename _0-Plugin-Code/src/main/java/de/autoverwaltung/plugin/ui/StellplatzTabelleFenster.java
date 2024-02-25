@@ -35,7 +35,7 @@ public class StellplatzTabelleFenster extends JFrame {
         List<Auto> fahrzeuge = manager.getAutosInGebaeude();
 
         String[] columnNames = {
-                "Stellplatz", "Marke", "Modell", "Preis", "Kilometer", "TUEV", "Autotyp", "Anzahl Sitzplätze", "Kofferraumvolumen"
+                "Stellplatz", "Marke", "Modell", "Preis", "Währung", "Kilometer", "TUEV", "Autotyp", "Anzahl Sitzplätze", "Kofferraumvolumen"
         };
         Object[][] data = new Object[fahrzeuge.size()][columnNames.length];
 
@@ -46,11 +46,12 @@ public class StellplatzTabelleFenster extends JFrame {
             data[i][1] = auto.getMarke();
             data[i][2] = auto.getModell();
             data[i][3] = auto.getPreis();
-            data[i][4] = auto.getKilometer();
-            data[i][5] = auto.isTuev() ? "Ja" : "Nein";
-            data[i][6] = auto.getAutotyp().toString();
-            data[i][7] = auto.getAnzahlSitzplaetze();
-            data[i][8] = auto.getKofferraumvolumen();
+            data[i][4] = auto.getWaehrung();
+            data[i][5] = auto.getKilometer();
+            data[i][6] = auto.isTuev() ? "Ja" : "Nein";
+            data[i][7] = auto.getAutotyp().toString();
+            data[i][8] = auto.getAnzahlSitzplaetze();
+            data[i][9] = auto.getKofferraumvolumen();
             i++;
         }
 
@@ -67,7 +68,7 @@ public class StellplatzTabelleFenster extends JFrame {
         List<Motorrad> motorraeder = manager.getMotorraederInGebaeude();
 
         String[] motorradColumnNames = {
-                "Stellplatz", "Marke", "Modell", "Preis", "Kilometer", "TUEV", "Motorradtyp", "Zweisitzer", "Beiwagen geeignet", "Seitenständer beidseitig"
+                "Stellplatz", "Marke", "Modell", "Preis", "Währung", "Kilometer", "TUEV", "Motorradtyp", "Zweisitzer", "Beiwagen geeignet", "Seitenständer beidseitig"
         };
         Object[][] motorradData = new Object[motorraeder.size()][motorradColumnNames.length];
 
@@ -78,12 +79,13 @@ public class StellplatzTabelleFenster extends JFrame {
             motorradData[i][1] = motorrad.getMarke();
             motorradData[i][2] = motorrad.getModell();
             motorradData[i][3] = motorrad.getPreis();
-            motorradData[i][4] = motorrad.getKilometer();
-            motorradData[i][5] = motorrad.isTuev() ? "Ja" : "Nein";
-            motorradData[i][6] = motorrad.getMotorradTyp().toString();
-            motorradData[i][7] = motorrad.isZweisitzer() ? "Ja" : "Nein";
-            motorradData[i][8] = motorrad.isBeiwagenGeeignet() ? "Ja" : "Nein";
-            motorradData[i][9] = motorrad.isSeitenstaenderBeidseitig() ? "Ja" : "Nein";
+            motorradData[i][4] = motorrad.getWaehrung();
+            motorradData[i][5] = motorrad.getKilometer();
+            motorradData[i][6] = motorrad.isTuev() ? "Ja" : "Nein";
+            motorradData[i][7] = motorrad.getMotorradTyp().toString();
+            motorradData[i][8] = motorrad.isZweisitzer() ? "Ja" : "Nein";
+            motorradData[i][9] = motorrad.isBeiwagenGeeignet() ? "Ja" : "Nein";
+            motorradData[i][10] = motorrad.isSeitenstaenderBeidseitig() ? "Ja" : "Nein";
             i++;
         }
 

@@ -6,8 +6,8 @@ public class Motorrad extends Fahrzeug{
     private MotorradTyp motorradTyp;
     private boolean seitenstaenderBeidseitig;
 
-    public Motorrad(String id, String marke, String modell, double preis, int kilometer, boolean tuev) {
-        super(id, marke, modell, preis, kilometer, tuev);
+    public Motorrad(String id, String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev) {
+        super(id, marke, modell, preis, waehrung, kilometer, tuev);
     }
 
     public boolean isZweisitzer() {

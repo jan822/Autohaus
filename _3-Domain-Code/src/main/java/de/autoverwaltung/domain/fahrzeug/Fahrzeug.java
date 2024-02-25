@@ -8,18 +8,25 @@ public abstract class Fahrzeug implements IEinzigartig {
 
     private String marke;
     private String modell;
-    private double preis;
+    private Betrag betraaag;
     private int kilometer;
     private boolean tuev;
 
     // Konstruktor der Klasse Fahrzeug
-    public Fahrzeug(String id, String marke, String modell, double preis, int kilometer, boolean tuev) {
+    public Fahrzeug(String id, String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev) {
         this.id = id;
         this.marke = marke;
         this.modell = modell;
-        this.preis = preis;
+        this.betraaag = new Betrag(preis, waehrung);
         this.kilometer = kilometer;
         this.tuev = tuev;
+    }
+
+    public double getPreis(){
+        return betraaag.getWert();
+    }
+    public Waehrung getWaehrung(){
+        return betraaag.getWaehrung();
     }
 
     public String getId() {
@@ -52,14 +59,6 @@ public abstract class Fahrzeug implements IEinzigartig {
 
     public void setModell(String modell) {
         this.modell = modell;
-    }
-
-    public double getPreis() {
-        return preis;
-    }
-
-    public void setPreis(double preis) {
-        this.preis = preis;
     }
 
     public int getKilometer() {

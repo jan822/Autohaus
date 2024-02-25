@@ -3,6 +3,8 @@ package de.autoverwaltung.adapter.csvloader;
 import de.autoverwaltung.domain.IEinzigartig;
 import de.autoverwaltung.domain.fahrzeug.Motorrad;
 import de.autoverwaltung.domain.fahrzeug.MotorradTyp;
+import de.autoverwaltung.domain.fahrzeug.Waehrung;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -38,14 +40,15 @@ public class CsvMotorradLoader {
         String marke = values[2];
         String modell = values[3];
         double preis = Double.parseDouble(values[4]);
-        int kilometer = Integer.parseInt(values[5]);
-        boolean tuev = Boolean.parseBoolean(values[6]);
-        boolean zweisitzer = Boolean.parseBoolean(values[7]);
-        boolean beiwagenGeeignet = Boolean.parseBoolean(values[8]);
-        MotorradTyp motorradTyp = MotorradTyp.valueOf(values[9].toUpperCase());
-        boolean seitenstaenderBeidseitig = Boolean.parseBoolean(values[10]);
+        Waehrung waehrung = Waehrung.valueOf(values[5].toUpperCase());
+        int kilometer = Integer.parseInt(values[6]);
+        boolean tuev = Boolean.parseBoolean(values[7]);
+        boolean zweisitzer = Boolean.parseBoolean(values[8]);
+        boolean beiwagenGeeignet = Boolean.parseBoolean(values[9]);
+        MotorradTyp motorradTyp = MotorradTyp.valueOf(values[10].toUpperCase());
+        boolean seitenstaenderBeidseitig = Boolean.parseBoolean(values[11]);
 
-        Motorrad motorrad = new Motorrad(id, marke, modell, preis, kilometer, tuev);
+        Motorrad motorrad = new Motorrad(id, marke, modell, preis, waehrung, kilometer, tuev);
         motorrad.setStellPlatzID(stellPlatzID);
         motorrad.setZweisitzer(zweisitzer);
         motorrad.setBeiwagenGeeignet(beiwagenGeeignet);

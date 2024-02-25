@@ -4,6 +4,9 @@ package de.autoverwaltung.adapter.csvloader;
 import de.autoverwaltung.domain.IEinzigartig;
 import de.autoverwaltung.domain.fahrzeug.Auto;
 import de.autoverwaltung.domain.fahrzeug.Autotyp;
+import de.autoverwaltung.domain.fahrzeug.Betrag;
+import de.autoverwaltung.domain.fahrzeug.Waehrung;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -38,16 +41,17 @@ public class CsvAutoLoader {
         String stellPlatzID = values[1]; // Zusätzliches Feld für Stellplatz-ID
         String marke = values[2];
         String modell = values[3];
-        double preis = Double.parseDouble(values[4]);
-        int kilometer = Integer.parseInt(values[5]);
-        boolean tuev = Boolean.parseBoolean(values[6]);
-        int anzahlTueren = Integer.parseInt(values[7]);
-        boolean navigationssystem = Boolean.parseBoolean(values[8]);
-        int anzahlSitzplaetze = Integer.parseInt(values[9]);
-        Autotyp autotyp = Autotyp.valueOf(values[10].toUpperCase());
-        double kofferraumvolumen = Double.parseDouble(values[11]);
+        Double preis = Double.parseDouble(values[4]);
+        Waehrung waherung = Waehrung.valueOf(values[5].toUpperCase());
+        int kilometer = Integer.parseInt(values[6]);
+        boolean tuev = Boolean.parseBoolean(values[7]);
+        int anzahlTueren = Integer.parseInt(values[8]);
+        boolean navigationssystem = Boolean.parseBoolean(values[9]);
+        int anzahlSitzplaetze = Integer.parseInt(values[10]);
+        Autotyp autotyp = Autotyp.valueOf(values[11].toUpperCase());
+        double kofferraumvolumen = Double.parseDouble(values[12]);
 
-        Auto auto = new Auto(id, marke, modell, preis, kilometer, tuev);
+        Auto auto = new Auto(id, marke, modell, preis, waherung, kilometer, tuev);
         auto.setStellPlatzID(stellPlatzID);
         auto.setAnzahlTueren(anzahlTueren);
         auto.setNavigationssystem(navigationssystem);

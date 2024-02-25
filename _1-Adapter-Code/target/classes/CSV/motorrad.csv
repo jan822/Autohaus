@@ -1,9 +1,9 @@
-ID,stellPlatzID,Marke,Modell,Preis,Kilometer,TUEV,zweisitzer,beiwagenGeeignet,motorradTyp,seitenstaenderBeidseitig
-f3fb1094-d818-49b0-b710-c98e72305079,76aa2694-e6d8-4b5d-8a39-6f3a999d8b2e,Yamaha,Modell E,20793.34,25153,true,false,true,CHOPPER,false
-aa1175f6-ee8f-48b4-ab2e-8402838721ed,0420b8c0-0f22-4348-b994-0ad305a888a5,Harley Davidson,Modell B,15982.36,1421,true,true,false,NAKED,true
-14340441-d42b-41ab-836d-7dcf615499a1,89554f03-b49e-47fb-8a02-37057b221306,BMW,Modell A,12670.39,4113,true,false,false,TOURER,true
-f5d50b36-ed0a-4ac0-bf0a-f3de31a16202,6cb40afe-a929-484d-bc70-af12d4ba902a,BMW,Modell E,11637.08,3806,false,false,false,SPORT,false
-af3f21fa-52f8-4c85-adb0-01f0d04ba1f9,67b80d83-67a3-4711-9ced-b183f3208a4a,Harley Davidson,Modell D,18309.83,32214,false,true,false,SPORT,false
-ef8230ca-861b-46c7-8123-14c80aba57f8,d77b62fe-33e8-478f-a061-1c19165cc817,Harley Davidson,Modell C,16501.7,27453,true,true,false,SPORT,false
-8dedd862-7af2-4f57-b504-72050271f5b3,ae390623-4393-4b70-ad32-48520a213f7f,Yamaha,Modell E,21857.9,22812,true,false,false,ENDURO,true
-523c86a8-b2bc-4cc7-b5d4-c3043aa5b210,fcf5695f-f574-4c89-8bfd-700b5c1a357e,Ducati,Modell E,23950.7,15344,true,false,true,NAKED,true
+ID,stellPlatzID,Marke,Modell,Preis,Waehrung,Kilometer,TUEV,zweisitzer,beiwagenGeeignet,motorradTyp,seitenstaenderBeidseitig
+f3fb1094-d818-49b0-b710-c98e72305079,76aa2694-e6d8-4b5d-8a39-6f3a999d8b2e,Yamaha,Modell E,20793.34,EUR,25153,true,false,true,CHOPPER,false
+aa1175f6-ee8f-48b4-ab2e-8402838721ed,0420b8c0-0f22-4348-b994-0ad305a888a5,Harley Davidson,Modell B,15982.36,EUR,1421,true,true,false,NAKED,true
+14340441-d42b-41ab-836d-7dcf615499a1,89554f03-b49e-47fb-8a02-37057b221306,BMW,Modell A,12670.39,EUR,4113,true,false,false,TOURER,true
+f5d50b36-ed0a-4ac0-bf0a-f3de31a16202,6cb40afe-a929-484d-bc70-af12d4ba902a,BMW,Modell E,11637.08,EUR,3806,false,false,false,SPORT,false
+af3f21fa-52f8-4c85-adb0-01f0d04ba1f9,67b80d83-67a3-4711-9ced-b183f3208a4a,Harley Davidson,Modell D,18309.83,EUR,32214,false,true,false,SPORT,false
+ef8230ca-861b-46c7-8123-14c80aba57f8,d77b62fe-33e8-478f-a061-1c19165cc817,Harley Davidson,Modell C,16501.7,EUR,27453,true,true,false,SPORT,false
+8dedd862-7af2-4f57-b504-72050271f5b3,ae390623-4393-4b70-ad32-48520a213f7f,Yamaha,Modell E,21857.9,EUR,22812,true,false,false,ENDURO,true
+523c86a8-b2bc-4cc7-b5d4-c3043aa5b210,fcf5695f-f574-4c89-8bfd-700b5c1a357e,Ducati,Modell E,23950.7,EUR,15344,true,false,true,NAKED,true

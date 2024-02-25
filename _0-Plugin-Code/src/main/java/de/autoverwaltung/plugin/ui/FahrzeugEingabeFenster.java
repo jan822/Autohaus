@@ -6,6 +6,7 @@ import de.autoverwaltung.application.guicontroller.AutoErstellManager;
 import de.autoverwaltung.application.guicontroller.GebaeudeStellplatzManager;
 import de.autoverwaltung.domain.fahrzeug.Autotyp;
 import de.autoverwaltung.domain.fahrzeug.MotorradTyp;
+import de.autoverwaltung.domain.fahrzeug.Waehrung;
 import de.autoverwaltung.domain.gebaeude.Gebaeude;
 import de.autoverwaltung.domain.gebaeude.Stellplatz;
 import de.autoverwaltung.adapter.datenverwaltung.CreateManager;
@@ -27,6 +28,7 @@ public class FahrzeugEingabeFenster extends JFrame {
     private JLabel lblAnzahlTueren, lblNavigationssystem, lblAnzahlSitzplaetze, lblAutotyp, lblKofferraumvolumen, lblAutoSpeicher;
     private JCheckBox chkNavigationssystem;
     private JComboBox<Autotyp> cmbAutotyp;
+    private JComboBox<Waehrung> cmbWaehrung;
     private JButton autoSpeichern;
 
     // Spezifische Felder für Motorrad
@@ -265,6 +267,11 @@ public class FahrzeugEingabeFenster extends JFrame {
         txtPreis = new JTextField();
         add(txtPreis);
 
+        //Währung
+        add(new JLabel("Währung:"));
+        cmbWaehrung = new JComboBox<>(Waehrung.values());
+        add(cmbWaehrung);
+
         // Kilometer
         add(new JLabel("Kilometer:"));
         txtKilometer = new JTextField();
@@ -281,6 +288,7 @@ public class FahrzeugEingabeFenster extends JFrame {
             String marke = txtMarke.getText();
             String modell = txtModell.getText();
             double preis = Double.parseDouble(txtPreis.getText());
+            Waehrung waehrung = (Waehrung) cmbWaehrung.getSelectedItem();
             int kilometer = Integer.parseInt(txtKilometer.getText());
             boolean tuev = chkTUEV.isSelected();
             int anzahlTueren = Integer.parseInt(txtAnzahlTueren.getText());
@@ -290,7 +298,7 @@ public class FahrzeugEingabeFenster extends JFrame {
             double kofferraumvolumen = Double.parseDouble(txtKofferraumvolumen.getText());
 
             AutoErstellManager controller = new AutoErstellManager(CreateManager.getInstance(), new CsvFahrzeugHandler(), UpdateManager.getInstance());
-            controller.autoAbspeichern(marke, modell, preis, kilometer, tuev, anzahlTueren, navigationssystem, anzahlSitzplaetze, autotyp, kofferraumvolumen, (Stellplatz) cmbStellplatz.getSelectedItem());
+            controller.autoAbspeichern(marke, modell, preis, waehrung, kilometer, tuev, anzahlTueren, navigationssystem, anzahlSitzplaetze, autotyp, kofferraumvolumen, (Stellplatz) cmbStellplatz.getSelectedItem());
             JOptionPane.showMessageDialog(this, "Auto hinzugefügt: " + marke + " " + modell);
             dispose();
         } catch (Exception e) {
@@ -303,6 +311,7 @@ public class FahrzeugEingabeFenster extends JFrame {
             String marke = txtMarke.getText();
             String modell = txtModell.getText();
             double preis = Double.parseDouble(txtPreis.getText());
+            Waehrung waehrung = (Waehrung) cmbWaehrung.getSelectedItem();
             int kilometer = Integer.parseInt(txtKilometer.getText());
             boolean tuev = chkTUEV.isSelected();
             boolean zweisitzer = chkZweisitzer.isSelected();
@@ -311,7 +320,7 @@ public class FahrzeugEingabeFenster extends JFrame {
             boolean seitenstaenderBeidseitig = chkSeitenstaenderBeidseitig.isSelected();
 
             AutoErstellManager controller = new AutoErstellManager(CreateManager.getInstance(), new CsvFahrzeugHandler(), UpdateManager.getInstance());
-            controller.motorradSpeichern(marke, modell, preis, kilometer, tuev, zweisitzer, beiwagenGeeignet, motorradTyp, seitenstaenderBeidseitig, (Stellplatz) cmbStellplatz.getSelectedItem());
+            controller.motorradSpeichern(marke, modell, preis, waehrung, kilometer, tuev, zweisitzer, beiwagenGeeignet, motorradTyp, seitenstaenderBeidseitig, (Stellplatz) cmbStellplatz.getSelectedItem());
             JOptionPane.showMessageDialog(this, "Motorrad hinzugefügt: " + marke + " " + modell);
             dispose();
         } catch (Exception e) {

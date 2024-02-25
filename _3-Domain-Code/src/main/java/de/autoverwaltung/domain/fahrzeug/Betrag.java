@@ -9,4 +9,19 @@ public class Betrag {
         this.waehrung = waehrung;
     }
 
+    public double getWert() {
+        return wert;
+    }
+
+    public void setWert(double wert) {
+        this.wert = wert;
+    }
+
+    public Waehrung getWaehrung() {
+        return waehrung;
+    }
+
+    public void setWaehrung(Waehrung waehrung) {
+        this.waehrung = waehrung;
+    }
 }
