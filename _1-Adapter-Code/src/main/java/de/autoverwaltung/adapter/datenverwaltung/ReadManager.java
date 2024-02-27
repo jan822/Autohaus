@@ -26,7 +26,7 @@ public class ReadManager<T extends IEinzigartig> implements IRead<T> {
     }
 
     @Override
-    public Map<Object, IEinzigartig> readAlleDaten() {
+    public Map<String, IEinzigartig> readAlleDaten() {
         return DatenRepository.getInstance().getRepository();
     }
 

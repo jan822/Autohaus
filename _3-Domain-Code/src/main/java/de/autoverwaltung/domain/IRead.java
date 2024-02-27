@@ -6,7 +6,7 @@ import java.util.Map;
 public interface IRead<T> {
     T read(String id);
 
-    Map<Object, IEinzigartig> readAlleDaten();
+    Map<String, IEinzigartig> readAlleDaten();
 
     <T extends IEinzigartig> List<T> readAlleDatenNachKlasse(Class<T> c);
 }

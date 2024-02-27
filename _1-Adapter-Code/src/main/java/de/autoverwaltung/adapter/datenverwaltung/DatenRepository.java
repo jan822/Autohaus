@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class DatenRepository<T extends IEinzigartig>  {
     private static DatenRepository<?> instance;
-    private final Map<Object, IEinzigartig> repository = new HashMap<>();
+    private final Map<String, IEinzigartig> repository = new HashMap<>();
 
     public static synchronized <T extends IEinzigartig> DatenRepository<T> getInstance() {
         if (instance == null) {
@@ -16,7 +16,7 @@ public class DatenRepository<T extends IEinzigartig>  {
         return (DatenRepository<T>) instance;
     }
 
-    public Map<Object, IEinzigartig> getRepository() {
+    public Map<String, IEinzigartig> getRepository() {
         return repository;
     }
 

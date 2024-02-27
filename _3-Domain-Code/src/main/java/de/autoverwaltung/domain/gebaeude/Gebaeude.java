@@ -35,7 +35,7 @@ public class Gebaeude implements IEinzigartig {
     }
 
     @Override
-    public Object getID() {
+    public String getID() {
         return id;
     }
 

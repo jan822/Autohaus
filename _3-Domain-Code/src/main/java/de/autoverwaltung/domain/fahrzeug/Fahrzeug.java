@@ -78,7 +78,7 @@ public abstract class Fahrzeug implements IEinzigartig {
     }
 
     @Override
-    public Object getID() {
+    public String getID() {
         return id;
     }
 
