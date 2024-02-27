@@ -6,12 +6,12 @@ import de.autoverwaltung.domain.gebaeude.Stellplatz;
 
 import java.util.UUID;
 
-public class AutoErstellManager {
+public class FahrzeugErstellManager {
     private ICreate<Fahrzeug> createManager;
     private IUpdate<Stellplatz> updateManager;
     private ICsvUpdater<Fahrzeug> autoICsvUpdater;
 
-    public AutoErstellManager(ICreate<Fahrzeug> createManager, ICsvUpdater autoICsvUpdater, IUpdate<Stellplatz> updateManager) {
+    public FahrzeugErstellManager(ICreate<Fahrzeug> createManager, ICsvUpdater autoICsvUpdater, IUpdate<Stellplatz> updateManager) {
         this.createManager = createManager;
         this.autoICsvUpdater = autoICsvUpdater;
         this.updateManager = updateManager;

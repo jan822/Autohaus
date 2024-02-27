@@ -20,13 +20,6 @@ public class DatenRepository<T extends IEinzigartig>  {
         return repository;
     }
 
-    // public Map<Object, IEinzigartig> Repository() {
-    //     return repository;
-    // }
-
-
-
     public DatenRepository() {
     }
 }
-

@@ -7,7 +7,6 @@ public class UpdateManager<T extends IEinzigartig> implements IUpdate<T> {
     private static UpdateManager<?> instance;
 
     private UpdateManager() {
-
     }
 
     public static synchronized <T extends IEinzigartig> UpdateManager<T> getInstance() {

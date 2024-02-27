@@ -2,7 +2,7 @@ package de.autoverwaltung.plugin.ui;
 
 
 import de.autoverwaltung.adapter.csvhandler.CsvFahrzeugHandler;
-import de.autoverwaltung.application.guicontroller.AutoErstellManager;
+import de.autoverwaltung.application.guicontroller.FahrzeugErstellManager;
 import de.autoverwaltung.application.guicontroller.GebaeudeStellplatzManager;
 import de.autoverwaltung.domain.fahrzeug.Autotyp;
 import de.autoverwaltung.domain.fahrzeug.MotorradTyp;
@@ -297,7 +297,7 @@ public class FahrzeugEingabeFenster extends JFrame {
             Autotyp autotyp = (Autotyp) cmbAutotyp.getSelectedItem();
             double kofferraumvolumen = Double.parseDouble(txtKofferraumvolumen.getText());
 
-            AutoErstellManager controller = new AutoErstellManager(CreateManager.getInstance(), new CsvFahrzeugHandler(), UpdateManager.getInstance());
+            FahrzeugErstellManager controller = new FahrzeugErstellManager(CreateManager.getInstance(), new CsvFahrzeugHandler(), UpdateManager.getInstance());
             controller.autoAbspeichern(marke, modell, preis, waehrung, kilometer, tuev, anzahlTueren, navigationssystem, anzahlSitzplaetze, autotyp, kofferraumvolumen, (Stellplatz) cmbStellplatz.getSelectedItem());
             JOptionPane.showMessageDialog(this, "Auto hinzugefügt: " + marke + " " + modell);
             dispose();
@@ -319,7 +319,7 @@ public class FahrzeugEingabeFenster extends JFrame {
             MotorradTyp motorradTyp = (MotorradTyp) cmbMotorradTyp.getSelectedItem();
             boolean seitenstaenderBeidseitig = chkSeitenstaenderBeidseitig.isSelected();
 
-            AutoErstellManager controller = new AutoErstellManager(CreateManager.getInstance(), new CsvFahrzeugHandler(), UpdateManager.getInstance());
+            FahrzeugErstellManager controller = new FahrzeugErstellManager(CreateManager.getInstance(), new CsvFahrzeugHandler(), UpdateManager.getInstance());
             controller.motorradSpeichern(marke, modell, preis, waehrung, kilometer, tuev, zweisitzer, beiwagenGeeignet, motorradTyp, seitenstaenderBeidseitig, (Stellplatz) cmbStellplatz.getSelectedItem());
             JOptionPane.showMessageDialog(this, "Motorrad hinzugefügt: " + marke + " " + modell);
             dispose();
