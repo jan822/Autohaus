@@ -1,14 +1,23 @@
 package de.autoverwaltung.domain.fahrzeug;
 
+import de.autoverwaltung.domain.gebaeude.Stellplatz;
+
 public class Auto extends Fahrzeug {
     private int anzahlTueren;
     private boolean navigationssystem;
     private int anzahlSitzplaetze;
     private Autotyp autotyp;
     private double kofferraumvolumen;
-
     public Auto(String id, String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev) {
         super(id, marke, modell, preis, waehrung, kilometer, tuev);
+    }
+    public Auto(String id, String stellplatzID, String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev, int anzahlTueren, boolean navigationssystem, int anzahlSitzplaetze, Autotyp autotyp, double kofferraumvolumen) {
+        super(id, stellplatzID, marke, modell, preis, waehrung, kilometer, tuev);
+        this.anzahlTueren = anzahlTueren;
+        this.navigationssystem = navigationssystem;
+        this.anzahlSitzplaetze = anzahlSitzplaetze;
+        this.autotyp = autotyp;
+        this.kofferraumvolumen = kofferraumvolumen;
     }
 
     public int getAnzahlTueren() {

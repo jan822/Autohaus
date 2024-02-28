@@ -28,7 +28,7 @@ public class FahrzeugVerkaufManager {
         Stellplatz belegterStellplatz = readStellplatz.read(ausgewaehltesFahrzeug.getStellPlatzID());
         belegterStellplatz.setFahrzeugID(null);
         updateStellplatz.update(belegterStellplatz);
-        //Csv akutalisieren
+        //CSV aktualisieren
         iCsvUpdater.eintragLoeschen(ausgewaehltesFahrzeug);
     }
 

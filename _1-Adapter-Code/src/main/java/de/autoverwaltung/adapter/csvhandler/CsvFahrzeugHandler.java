@@ -16,7 +16,6 @@ public class CsvFahrzeugHandler implements ICsvUpdater {
     public CsvFahrzeugHandler() {
         stellplatzHandler = new CsvStellplatzHandler();
     }
-
     private static final String CSV_FILE_PATH_AUTOS = "_1-Adapter-Code\\src\\main\\resources\\CSV\\autos.csv";
     private static final String CSV_FILE_PATH_MOTORRAEDER = "_1-Adapter-Code\\src\\main\\resources\\CSV\\motorrad.csv";
 
@@ -112,7 +111,7 @@ public class CsvFahrzeugHandler implements ICsvUpdater {
         }
     }
 
-    private String buildCsvLine(Fahrzeug fahrzeug) {
+    public String buildCsvLine(Fahrzeug fahrzeug) {
         if (fahrzeug instanceof Auto) {
             Auto auto = (Auto) fahrzeug;
             return String.join(",",

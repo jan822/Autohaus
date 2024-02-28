@@ -36,10 +36,7 @@ public class CsvGebaeudeLoader {
         String name = values[1];
         int stellplatzKapazitaet = Integer.parseInt(values[2]);
 
-        Gebaeude gebaeude = new Gebaeude();
-        gebaeude.setId(id);
-        gebaeude.setName(name);
-        gebaeude.setStellplatzKapazitaet(stellplatzKapazitaet);
+        Gebaeude gebaeude = new Gebaeude(id, name, stellplatzKapazitaet);
 
         return gebaeude;
     }

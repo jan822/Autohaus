@@ -24,4 +24,12 @@ public class Betrag {
     public void setWaehrung(Waehrung waehrung) {
         this.waehrung = waehrung;
     }
+
+    @Override
+    public String toString() {
+        return "Betrag{" +
+                "wert=" + wert +
+                ", waehrung=" + waehrung +
+                '}';
+    }
 }

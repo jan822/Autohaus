@@ -10,6 +10,13 @@ public class Gebaeude implements IEinzigartig {
 
     // Konstruktoren, Getter und Setter hier einfügen
 
+
+    public Gebaeude(String id, String name, int stellplatzKapazitaet) {
+        this.id = id;
+        this.name = name;
+        this.stellplatzKapazitaet = stellplatzKapazitaet;
+    }
+
     public String getId() {
         return id;
     }

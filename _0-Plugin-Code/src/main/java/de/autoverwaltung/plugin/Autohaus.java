@@ -16,7 +16,7 @@ public class Autohaus {
         ReadManager.getInstance();
         UpdateManager.getInstance();
 
-        GesamtLoader gesamtLoader = new GesamtLoader();
+        new GesamtLoader();
 
         SwingUtilities.invokeLater(() -> {
             Startbildschirm frame = new Startbildschirm();
