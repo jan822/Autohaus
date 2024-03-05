@@ -9,11 +9,11 @@ import java.util.UUID;
 public class FahrzeugErstellManager {
     private ICreate<Fahrzeug> createManager;
     private IUpdate<Stellplatz> updateManager;
-    private ICsvUpdater<Fahrzeug> autoICsvUpdater;
+    private ICsvUpdater<Fahrzeug> fahrzeugICsvUpdater;
 
-    public FahrzeugErstellManager(ICreate<Fahrzeug> createManager, ICsvUpdater autoICsvUpdater, IUpdate<Stellplatz> updateManager) {
+    public FahrzeugErstellManager(ICreate<Fahrzeug> createManager, ICsvUpdater fahrzeugICsvUpdater, IUpdate<Stellplatz> updateManager) {
         this.createManager = createManager;
-        this.autoICsvUpdater = autoICsvUpdater;
+        this.fahrzeugICsvUpdater = fahrzeugICsvUpdater;
         this.updateManager = updateManager;
     }
 
@@ -28,10 +28,7 @@ public class FahrzeugErstellManager {
         auto.setAutotyp(autotyp);
         auto.setKofferraumvolumen(kofferraumvolumen);
 
-        createManager.create(auto);
-        gewaehlterStellplatz.setFahrzeugID(id);
-        updateManager.update(gewaehlterStellplatz);
-        autoICsvUpdater.eintragHinzufuegen(auto);
+        fahrzeugUpdaten(auto, gewaehlterStellplatz, id);
     }
     public void motorradSpeichern(String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev, boolean zweisitzer, boolean beiwagenGeeignet, MotorradTyp motorradTyp, boolean seitenstaenderBeidseitig, Stellplatz gewaehlterStellplatz) {
         String id = UUID.randomUUID().toString();
@@ -43,10 +40,14 @@ public class FahrzeugErstellManager {
         motorrad.setSeitenstaenderBeidseitig(seitenstaenderBeidseitig);
         motorrad.setStellPlatzID(gewaehlterStellplatz.getID());
 
-        createManager.create(motorrad);
+        fahrzeugUpdaten(motorrad, gewaehlterStellplatz, id);
+    }
+
+    public void fahrzeugUpdaten(Fahrzeug fahrzeug, Stellplatz gewaehlterStellplatz, String id){
+        createManager.create(fahrzeug);
         gewaehlterStellplatz.setFahrzeugID(id);
         updateManager.update(gewaehlterStellplatz);
-        autoICsvUpdater.eintragHinzufuegen(motorrad);
+        fahrzeugICsvUpdater.eintragHinzufuegen(fahrzeug);
     }
 
 }
