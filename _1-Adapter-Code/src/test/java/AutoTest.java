@@ -1,6 +1,7 @@
 import de.autoverwaltung.domain.fahrzeug.Auto;
 import de.autoverwaltung.domain.fahrzeug.Betrag;
 import de.autoverwaltung.domain.fahrzeug.Waehrung;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class AutoTest {
         Auto auto = new Auto(id, "Mercedes", "C-Klasse", 6000, Waehrung.EUR, 10000, true);
         String actual = auto.getMarke();
         //Assert
-        assertEquals(actual, "Mercedes");
+        AssertJUnit.assertEquals(actual, "Mercedes");
     }
 
     @Test
@@ -31,6 +32,6 @@ public class AutoTest {
         Auto auto = new Auto(id, "Mercedes", "C-Klasse", 6000, Waehrung.EUR, 10000, true);
         Betrag betrag = new Betrag(6000, Waehrung.EUR);
         //Assert
-        assertEquals(betrag.toString(), auto.getBetrag().toString());
+        AssertJUnit.assertEquals(betrag.toString(), auto.getBetrag().toString());
     }
 }

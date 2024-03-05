@@ -18,6 +18,12 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.3.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.example</groupId>
             <artifactId>_2-Application-Code</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -33,6 +39,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.6.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

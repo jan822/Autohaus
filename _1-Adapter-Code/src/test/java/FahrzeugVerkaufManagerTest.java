@@ -5,8 +5,8 @@ import de.autoverwaltung.domain.IRead;
 import de.autoverwaltung.domain.IUpdate;
 import de.autoverwaltung.domain.fahrzeug.Fahrzeug;
 import de.autoverwaltung.domain.gebaeude.Stellplatz;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.mockito.Mockito.*;
 
 class FahrzeugVerkaufManagerTest {
