@@ -19,27 +19,12 @@ public class FahrzeugErstellManager {
 
     public void autoAbspeichern(String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev, int anzahlTueren, boolean navigationssystem, int anzahlSitzplaetze, Autotyp autotyp, double kofferraumvolumen, Stellplatz gewaehlterStellplatz) {
         String id = UUID.randomUUID().toString();
-
-        Auto auto = new Auto(id, marke, modell, preis, waehrung, kilometer, tuev);
-        auto.setAnzahlTueren(anzahlTueren);
-        auto.setStellPlatzID(gewaehlterStellplatz.getID());
-        auto.setNavigationssystem(navigationssystem);
-        auto.setAnzahlSitzplaetze(anzahlSitzplaetze);
-        auto.setAutotyp(autotyp);
-        auto.setKofferraumvolumen(kofferraumvolumen);
-
+        Auto auto = new Auto(id, gewaehlterStellplatz.getID(), marke, modell, preis, waehrung, kilometer, tuev, anzahlTueren, navigationssystem, anzahlSitzplaetze, autotyp, kofferraumvolumen);
         fahrzeugUpdaten(auto, gewaehlterStellplatz, id);
     }
     public void motorradSpeichern(String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev, boolean zweisitzer, boolean beiwagenGeeignet, MotorradTyp motorradTyp, boolean seitenstaenderBeidseitig, Stellplatz gewaehlterStellplatz) {
         String id = UUID.randomUUID().toString();
-
-        Motorrad motorrad = new Motorrad(id, marke, modell, preis, waehrung, kilometer, tuev);
-        motorrad.setZweisitzer(zweisitzer);
-        motorrad.setBeiwagenGeeignet(beiwagenGeeignet);
-        motorrad.setMotorradTyp(motorradTyp);
-        motorrad.setSeitenstaenderBeidseitig(seitenstaenderBeidseitig);
-        motorrad.setStellPlatzID(gewaehlterStellplatz.getID());
-
+        Motorrad motorrad = new Motorrad(id, gewaehlterStellplatz.getID(), marke, modell, preis, waehrung, kilometer, tuev, zweisitzer, beiwagenGeeignet, motorradTyp, seitenstaenderBeidseitig);
         fahrzeugUpdaten(motorrad, gewaehlterStellplatz, id);
     }
 

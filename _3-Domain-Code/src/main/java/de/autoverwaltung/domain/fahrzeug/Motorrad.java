@@ -9,6 +9,13 @@ public class Motorrad extends Fahrzeug{
     public Motorrad(String id, String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev) {
         super(id, marke, modell, preis, waehrung, kilometer, tuev);
     }
+    public Motorrad(String id, String stellplatzID, String marke, String modell, double preis, Waehrung waehrung, int kilometer, boolean tuev, boolean zweisitzer, boolean beiwagenGeeignet, MotorradTyp motorradTyp, boolean seitenstaenderBeidseitig) {
+        super(id, stellplatzID, marke, modell, preis, waehrung, kilometer, tuev);
+        this.zweisitzer = zweisitzer;
+        this.beiwagenGeeignet = beiwagenGeeignet;
+        this.motorradTyp = motorradTyp;
+        this.seitenstaenderBeidseitig = seitenstaenderBeidseitig;
+    }
 
     public boolean isZweisitzer() {
         return zweisitzer;
