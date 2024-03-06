@@ -20,7 +20,6 @@ import java.util.List;
 public class FahrzeugEingabeFenster extends JFrame {
     // Gemeinsame Felder
     private JTextField txtMarke, txtModell, txtPreis, txtKilometer;
-
     private JCheckBox chkTUEV;
 
     // Spezifische Felder für Auto
@@ -54,7 +53,7 @@ public class FahrzeugEingabeFenster extends JFrame {
         setupFahrzeugTypSwitch();
 
         // Gemeinsame Felder
-        addCommonFields();
+        addGemeinsameFelder();
 
         // Spezifische Felder für Auto und Motorrad
         setupAutoFields();
@@ -251,36 +250,24 @@ public class FahrzeugEingabeFenster extends JFrame {
         add(cmbStellplatz);
     }
 
-    private void addCommonFields() {
-        // Marke
-        add(new JLabel("Marke:"));
-        txtMarke = new JTextField();
-        add(txtMarke);
+    private void ergänzeJLabelUndJComponent(String labelText, JComponent component) {
+        JLabel label = new JLabel(labelText);
+        add(label);
+        add(component);
+    }
 
-        // Modell
-        add(new JLabel("Modell:"));
-        txtModell = new JTextField();
-        add(txtModell);
-
-        // Preis
-        add(new JLabel("Preis:"));
-        txtPreis = new JTextField();
-        add(txtPreis);
-
-        //Währung
-        add(new JLabel("Währung:"));
+    private void addGemeinsameFelder() {
+        JTextField txtMarke = new JTextField(), txtModell = new JTextField(), txtPreis = new JTextField();
         cmbWaehrung = new JComboBox<>(Waehrung.values());
-        add(cmbWaehrung);
-
-        // Kilometer
-        add(new JLabel("Kilometer:"));
         txtKilometer = new JTextField();
-        add(txtKilometer);
-
-        // TÜV
-        add(new JLabel("TÜV (Ja/Nein):"));
         chkTUEV = new JCheckBox();
-        add(chkTUEV);
+
+        ergänzeJLabelUndJComponent("Marke:", txtMarke);
+        ergänzeJLabelUndJComponent("Modell:", txtModell);
+        ergänzeJLabelUndJComponent("Preis:", txtPreis);
+        ergänzeJLabelUndJComponent("Währung:", cmbWaehrung);
+        ergänzeJLabelUndJComponent("Kilometer:", txtKilometer);
+        ergänzeJLabelUndJComponent("TÜV (Ja/Nein):", chkTUEV);
     }
 
     private void autoSpeichern() {
