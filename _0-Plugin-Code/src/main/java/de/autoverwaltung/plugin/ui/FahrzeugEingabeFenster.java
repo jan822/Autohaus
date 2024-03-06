@@ -257,7 +257,9 @@ public class FahrzeugEingabeFenster extends JFrame {
     }
 
     private void addGemeinsameFelder() {
-        JTextField txtMarke = new JTextField(), txtModell = new JTextField(), txtPreis = new JTextField();
+        txtMarke = new JTextField();
+        txtModell = new JTextField();
+        txtPreis = new JTextField();
         cmbWaehrung = new JComboBox<>(Waehrung.values());
         txtKilometer = new JTextField();
         chkTUEV = new JCheckBox();
