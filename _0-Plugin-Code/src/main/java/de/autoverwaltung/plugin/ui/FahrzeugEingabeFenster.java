@@ -18,20 +18,19 @@ import java.awt.*;
 import java.util.List;
 
 public class FahrzeugEingabeFenster extends JFrame {
-    // Gemeinsame Felder
+    // Gemeinsame Felder 0-5 Auto, 6-10 Motorrad, 11-16 Gemeinsam
+    private JLabel[] jLabels = new JLabel[17];
     private JTextField txtMarke, txtModell, txtPreis, txtKilometer;
     private JCheckBox chkTUEV;
 
     // Spezifische Felder für Auto
     private JTextField txtAnzahlTueren, txtAnzahlSitzplaetze, txtKofferraumvolumen;
-    private JLabel lblAnzahlTueren, lblNavigationssystem, lblAnzahlSitzplaetze, lblAutotyp, lblKofferraumvolumen, lblAutoSpeicher;
     private JCheckBox chkNavigationssystem;
     private JComboBox<Autotyp> cmbAutotyp;
     private JComboBox<Waehrung> cmbWaehrung;
     private JButton autoSpeichern;
 
     // Spezifische Felder für Motorrad
-    private JLabel lblZweisitzer, lblBeiwagenGeeignet, lblMotorradTyp, lblSeitenstaenderBeidseitig, lblMotorradSpeicher;
     private JCheckBox chkZweisitzer, chkBeiwagenGeeignet, chkSeitenstaenderBeidseitig;
     private JComboBox<MotorradTyp> cmbMotorradTyp;
     private JButton motorradSpeichern;
@@ -50,19 +49,42 @@ public class FahrzeugEingabeFenster extends JFrame {
         setLayout(new GridLayout(0, 2));
         setupParkPositionSection();
 
-        setupFahrzeugTypSwitch();
+        erstelleFahrzeugTypSwitch();
+        erstelleJLabels();
 
         // Gemeinsame Felder
         addGemeinsameFelder();
 
         // Spezifische Felder für Auto und Motorrad
-        setupAutoFields();
-        setupMotorradFields();
-        toggleAutoFields(true);
+        erstelleAutoFelder();
+        erstelleMotorradFelder();
+        autoFelderEinblenden(true);
         toggleMotorradFields(false);
     }
 
-    private void setupFahrzeugTypSwitch() {
+    private void erstelleJLabels() {
+        jLabels[0] = new JLabel("Anzahl Türen:");
+        jLabels[1] = new JLabel("Navigationssystem (Ja/Nein):");
+        jLabels[2] = new JLabel("Anzahl Sitzplätze:");
+        jLabels[3] = new JLabel("Autotyp:");
+        jLabels[4] = new JLabel("Kofferraumvolumen:");
+        jLabels[5] = new JLabel("");
+
+        jLabels[6] = new JLabel("Zweisitzer (Ja/Nein):");
+        jLabels[7] = new JLabel("Beiwagen geeignet (Ja/Nein):");
+        jLabels[8] = new JLabel("Motorradtyp:");
+        jLabels[9] = new JLabel("Seitenständer beidseitig (Ja/Nein):");
+        jLabels[10] = new JLabel("");
+
+        jLabels[11] = new JLabel("Marke:");
+        jLabels[12] = new JLabel("Modell");
+        jLabels[13] = new JLabel("Preis");
+        jLabels[14] = new JLabel("Währung");
+        jLabels[15] = new JLabel("Kilometer");
+        jLabels[16] = new JLabel("TÜV (Ja/Nein):");
+    }
+
+    private void erstelleFahrzeugTypSwitch() {
         addSectionTitle("Fahrzeug");
         addSectionTitle("");
         JLabel waehle = new JLabel("Auto oder Motorrad");
@@ -75,152 +97,70 @@ public class FahrzeugEingabeFenster extends JFrame {
     private void switchFahrzeugTyp() {
         boolean isAuto = toggleFahrzeugTyp.isSelected();
         toggleFahrzeugTyp.setText(isAuto ? "Auto" : "Motorrad");
-        toggleAutoFields(isAuto);
+        autoFelderEinblenden(isAuto);
         toggleMotorradFields(!isAuto);
     }
 
-    private void toggleAutoFields(boolean shouldAdd) {
-        if (shouldAdd) {
-            // Hinzufügen der Auto-spezifischen Felder
-            add(lblAnzahlTueren);
-            add(txtAnzahlTueren);
-            add(lblNavigationssystem);
-            add(chkNavigationssystem);
-            add(lblAnzahlSitzplaetze);
-            add(txtAnzahlSitzplaetze);
-            add(lblAutotyp);
-            add(cmbAutotyp);
-            add(lblKofferraumvolumen);
-            add(txtKofferraumvolumen);
-            add(lblAutoSpeicher);
-            add(autoSpeichern);
-        } else {
-            // Entfernen der Auto-spezifischen Felder
-            remove(lblAnzahlTueren);
-            remove(txtAnzahlTueren);
-            remove(lblNavigationssystem);
-            remove(chkNavigationssystem);
-            remove(lblAnzahlSitzplaetze);
-            remove(txtAnzahlSitzplaetze);
-            remove(lblAutotyp);
-            remove(cmbAutotyp);
-            remove(lblKofferraumvolumen);
-            remove(txtKofferraumvolumen);
-            remove(lblAutoSpeicher);
-            remove(autoSpeichern);
+    private void autoFelderEinblenden(boolean shouldAdd) {
+        JComponent[] tempComp = new JComponent[]{txtAnzahlTueren, chkNavigationssystem, txtAnzahlSitzplaetze, cmbAutotyp, txtKofferraumvolumen, autoSpeichern};
+        // Hinzufügen und Entfernen der Auto-spezifischen Felder
+        for (int i = 0; i < 6; i++) {
+            if (shouldAdd) {
+                add(jLabels[i]);
+                add(tempComp[i]);
+            } else {
+                remove(jLabels[i]);
+                remove(tempComp[i]);
+            }
         }
         this.revalidate();
         this.repaint();
     }
-
 
     private void toggleMotorradFields(boolean shouldAdd) {
-        if (shouldAdd) {
-            // Hinzufügen der Motorrad-spezifischen Felder
-            add(lblZweisitzer);
-            add(chkZweisitzer);
-            add(lblBeiwagenGeeignet);
-            add(chkBeiwagenGeeignet);
-            add(lblMotorradTyp);
-            add(cmbMotorradTyp);
-            add(lblSeitenstaenderBeidseitig);
-            add(chkSeitenstaenderBeidseitig);
-            add(lblMotorradSpeicher);
-            add(motorradSpeichern);
-        } else {
-            // Entfernen der Motorrad-spezifischen Felder
-            remove(lblZweisitzer);
-            remove(chkZweisitzer);
-            remove(lblBeiwagenGeeignet);
-            remove(chkBeiwagenGeeignet);
-            remove(lblMotorradTyp);
-            remove(cmbMotorradTyp);
-            remove(lblSeitenstaenderBeidseitig);
-            remove(chkSeitenstaenderBeidseitig);
-            remove(lblMotorradSpeicher);
-            remove(motorradSpeichern);
+        JComponent[] tempComp = new JComponent[]{chkZweisitzer, chkBeiwagenGeeignet, cmbMotorradTyp, chkSeitenstaenderBeidseitig, motorradSpeichern};
+        // Hinzufügen und Entfernen der Auto-spezifischen Felder
+        for (int i = 0; i < 5; i++) {
+            if (shouldAdd) {
+                add(jLabels[i + 6]);
+                add(tempComp[i]);
+            } else {
+                remove(jLabels[i + 6]);
+                remove(tempComp[i]);
+            }
         }
         this.revalidate();
         this.repaint();
     }
 
-
-    private void setupAutoFields() {
-        // Anzahl der Türen
-        lblAnzahlTueren = new JLabel("Anzahl Türen:");
-        txtAnzahlTueren = new JTextField();
-        add(lblAnzahlTueren);
-        add(txtAnzahlTueren);
-
-        // Navigationssystem
-        lblNavigationssystem = new JLabel("Navigationssystem (Ja/Nein):");
-        chkNavigationssystem = new JCheckBox();
-        add(lblNavigationssystem);
-        add(chkNavigationssystem);
-
-        // Anzahl der Sitzplätze
-        lblAnzahlSitzplaetze = new JLabel("Anzahl Sitzplätze:");
-        txtAnzahlSitzplaetze = new JTextField();
-        add(lblAnzahlSitzplaetze);
-        add(txtAnzahlSitzplaetze);
-
-        // Autotyp
-        lblAutotyp = new JLabel("Autotyp:");
-        cmbAutotyp = new JComboBox<>(Autotyp.values());
-        add(lblAutotyp);
-        add(cmbAutotyp);
-
-        // Kofferraumvolumen
-        lblKofferraumvolumen = new JLabel("Kofferraumvolumen:");
-        txtKofferraumvolumen = new JTextField();
-        add(lblKofferraumvolumen);
-        add(txtKofferraumvolumen);
-
-        // Speichern
-        lblAutoSpeicher = new JLabel("");
-        autoSpeichern = new JButton("Speichern");
+    private void erstelleAutoFelder() {
+        JComponent[] components = {
+                txtAnzahlTueren = new JTextField(),
+                chkNavigationssystem = new JCheckBox(),
+                txtAnzahlSitzplaetze = new JTextField(),
+                cmbAutotyp = new JComboBox<>(Autotyp.values()),
+                txtKofferraumvolumen = new JTextField(),
+                autoSpeichern = new JButton("Speichern")
+        };
+        for (JComponent component : components) {
+            add(component);
+        }
         autoSpeichern.addActionListener(e -> autoSpeichern());
-        add(lblAutoSpeicher);
-        add(autoSpeichern);
-
-
-        // Standardmäßig unsichtbar setzen
-        toggleAutoFields(false);
+        autoFelderEinblenden(false);
     }
 
-    private void setupMotorradFields() {
-        // Zweisitzer
-        lblZweisitzer = new JLabel("Zweisitzer (Ja/Nein):");
-        chkZweisitzer = new JCheckBox();
-        add(lblZweisitzer);
-        add(chkZweisitzer);
-
-        // Beiwagen geeignet
-        lblBeiwagenGeeignet = new JLabel("Beiwagen geeignet (Ja/Nein):");
-        chkBeiwagenGeeignet = new JCheckBox();
-        add(lblBeiwagenGeeignet);
-        add(chkBeiwagenGeeignet);
-
-        // MotorradTyp
-        lblMotorradTyp = new JLabel("Motorradtyp:");
-        cmbMotorradTyp = new JComboBox<>(MotorradTyp.values());
-        add(lblMotorradTyp);
-        add(cmbMotorradTyp);
-
-        // Seitenständer beidseitig
-        lblSeitenstaenderBeidseitig = new JLabel("Seitenständer beidseitig (Ja/Nein):");
-        chkSeitenstaenderBeidseitig = new JCheckBox();
-        add(lblSeitenstaenderBeidseitig);
-        add(chkSeitenstaenderBeidseitig);
-
-        // Speichern
-        lblMotorradSpeicher = new JLabel("");
-        motorradSpeichern = new JButton("Speichern");
+    private void erstelleMotorradFelder() {
+        JComponent[] components = {
+                chkZweisitzer = new JCheckBox(),
+                chkBeiwagenGeeignet = new JCheckBox(),
+                cmbMotorradTyp = new JComboBox<>(MotorradTyp.values()),
+                chkSeitenstaenderBeidseitig = new JCheckBox(),
+                motorradSpeichern = new JButton("Speichern")
+        };
+        for (JComponent component : components) {
+            add(component);
+        }
         motorradSpeichern.addActionListener(e -> motorradSpeichern());
-        add(lblMotorradSpeicher);
-        add(motorradSpeichern);
-
-        // Standardmäßig unsichtbar setzen
         toggleMotorradFields(false);
     }
 
@@ -242,35 +182,32 @@ public class FahrzeugEingabeFenster extends JFrame {
                 updateStellplatzDropdown(ausgewaehltesGebaeude.getId());
             }
         });
-
         add(new JLabel("Gebäude:"));
         add(cmbGebaeude);
-
         add(new JLabel("Stellplatz:"));
         add(cmbStellplatz);
     }
 
-    private void ergänzeJLabelUndJComponent(String labelText, JComponent component) {
-        JLabel label = new JLabel(labelText);
+    private void addGemeinsameFelder() {
+        JComponent[] components = {
+                txtMarke = new JTextField(),
+                txtModell = new JTextField(),
+                txtPreis = new JTextField(),
+                cmbWaehrung = new JComboBox<>(Waehrung.values()),
+                txtKilometer = new JTextField(),
+                chkTUEV = new JCheckBox()
+        };
+
+        for (int i = 0; i <= 5; i++) {
+            ergänzeJLabelUndJComponent(jLabels[i + 11], components[i]);
+        }
+    }
+
+    private void ergänzeJLabelUndJComponent(JLabel label, JComponent component) {
         add(label);
         add(component);
     }
 
-    private void addGemeinsameFelder() {
-        txtMarke = new JTextField();
-        txtModell = new JTextField();
-        txtPreis = new JTextField();
-        cmbWaehrung = new JComboBox<>(Waehrung.values());
-        txtKilometer = new JTextField();
-        chkTUEV = new JCheckBox();
-
-        ergänzeJLabelUndJComponent("Marke:", txtMarke);
-        ergänzeJLabelUndJComponent("Modell:", txtModell);
-        ergänzeJLabelUndJComponent("Preis:", txtPreis);
-        ergänzeJLabelUndJComponent("Währung:", cmbWaehrung);
-        ergänzeJLabelUndJComponent("Kilometer:", txtKilometer);
-        ergänzeJLabelUndJComponent("TÜV (Ja/Nein):", chkTUEV);
-    }
 
     private void autoSpeichern() {
         try {
@@ -335,5 +272,4 @@ public class FahrzeugEingabeFenster extends JFrame {
         label.setFont(new Font(label.getFont().getName(), Font.BOLD, 16));
         add(label);
     }
-
 }

@@ -69,7 +69,7 @@ public class FahrzeugVerkaufFenster extends JFrame {
         for (Motorrad motorrad : motorraeder) {
             cmbFahrzeug.addItem(motorrad);
         }
-        verkaufenButton.setEnabled(!autos.isEmpty() && !motorraeder.isEmpty());
+        verkaufenButton.setEnabled(!autos.isEmpty() || !motorraeder.isEmpty());
     }
 
     private void fahrzeugVerkaufen() {

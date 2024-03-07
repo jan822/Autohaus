@@ -15,17 +15,10 @@ public class GesamtLoader {
     public <T extends IEinzigartig> void datenLaden() {
         List<T> entities = new ArrayList<>();
         String csvPath = "_1-Adapter-Code\\src\\main\\resources\\CSV\\";
-        CsvAutoLoader autoLoader = new CsvAutoLoader(csvPath + "autos.csv");
-        entities.addAll(autoLoader.loadAutos());
-
-        CsvGebaeudeLoader gebaeudeLoader = new CsvGebaeudeLoader(csvPath + "gebaeude.csv");
-        entities.addAll(gebaeudeLoader.loadGebaeude());
-
-        CsvStellplatzLoader stellplatzLoader = new CsvStellplatzLoader(csvPath + "stellplaetze.csv");
-        entities.addAll(stellplatzLoader.loadStellplaetze());
-
-        CsvMotorradLoader motorradLoader = new CsvMotorradLoader(csvPath + "motorrad.csv");
-        entities.addAll(motorradLoader.loadMotorraeder());
+        entities.addAll(LoaderUtils.load(csvPath + "autos.csv", new CsvAutoLoader()));
+        entities.addAll(LoaderUtils.load(csvPath + "gebaeude.csv", new CsvGebaeudeLoader()));
+        entities.addAll(LoaderUtils.load(csvPath + "stellplaetze.csv", new CsvStellplatzLoader()));
+        entities.addAll(LoaderUtils.load(csvPath + "motorrad.csv", new CsvMotorradLoader()));
 
         for (T entity : entities) {
             CreateManager.getInstance().create(entity);

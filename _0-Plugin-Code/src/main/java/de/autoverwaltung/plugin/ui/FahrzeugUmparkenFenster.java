@@ -43,13 +43,17 @@ public class FahrzeugUmparkenFenster extends JFrame {
         cmbGebaeude = new JComboBox<>();
         cmbGebaeude.addActionListener(e -> gebaeudeAusgewaehlt());
 
-        cmbFahrzeug = new JComboBox<>();
-        cmbFahrzeug.addActionListener(e -> fahrzeugAusgewaehlt());
-        cmbFahrzeug.setEnabled(false);
-
+        // Stellplatz mit besetzten Fahrzeug
+        // CsvFahrzeugHandler csvFahrzeugHandler = new CsvFahrzeugHandler();
         cmbStellplatz = new JComboBox<>();
         cmbStellplatz.addActionListener(e -> stellplatzAusgewaehlt());
         cmbStellplatz.setEnabled(false);
+
+        cmbFahrzeug = new JComboBox<>();
+        cmbFahrzeug.addActionListener(e -> fahrzeugAusgewaehlt());
+        cmbFahrzeug.setEnabled(false);
+        // stellplatzAusgewaehlt();
+
 
         add(cmbGebaeude);
         add(cmbStellplatz);
@@ -65,6 +69,9 @@ public class FahrzeugUmparkenFenster extends JFrame {
         cmbStellplatz2.setEnabled(false);
 
         ladeGebaeudeDaten();
+        cmbGebaeude.setSelectedIndex(0);
+        gebaeudeAusgewaehlt();
+        // if()
         add(cmbGebaeude2);
         add(cmbStellplatz2);
 
@@ -154,6 +161,9 @@ public class FahrzeugUmparkenFenster extends JFrame {
         List<Stellplatz> stellplaetze = belegteStellplatze? stellplatzManager.getBelegteStellplaetzeInGebaeude(): stellplatzManager.getNichtBelegteStellplaetzeInGebaeude();
         for (Stellplatz stellplatz : stellplaetze) {
             cmbStell.addItem(stellplatz);
+        }
+        if(!stellplaetze.isEmpty()) {
+            stellplatzAusgewaehlt();
         }
         umparkButton.setEnabled(!stellplaetze.isEmpty());
     }

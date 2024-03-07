@@ -1,4 +1,6 @@
+import de.autoverwaltung.adapter.csvloader.CsvAutoLoader;
 import de.autoverwaltung.adapter.csvloader.CsvGebaeudeLoader;
+import de.autoverwaltung.adapter.csvloader.LoaderUtils;
 import de.autoverwaltung.domain.IEinzigartig;
 import de.autoverwaltung.domain.gebaeude.Gebaeude;
 import org.junit.jupiter.api.Test;
@@ -9,9 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.AssertJUnit.*;
 
 public class CsvGebaudeLoaderTest {
     private File tempFile;
@@ -27,8 +27,7 @@ public class CsvGebaudeLoaderTest {
         writer.close();
 
         //Act
-        loader = new CsvGebaeudeLoader(tempFile.getAbsolutePath());
-        List<IEinzigartig> gebaeude = loader.loadGebaeude();
+        List<IEinzigartig> gebaeude = LoaderUtils.load(tempFile.getAbsolutePath(), new CsvGebaeudeLoader());
         assertNotNull("Liste sollte nicht null sein", gebaeude);
         assertFalse("Liste sollte nicht leer sein", gebaeude.isEmpty());
         Gebaeude gebaeud = (Gebaeude) gebaeude.get(0);

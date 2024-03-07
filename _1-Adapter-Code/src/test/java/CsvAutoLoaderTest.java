@@ -1,4 +1,5 @@
 import de.autoverwaltung.adapter.csvloader.CsvAutoLoader;
+import de.autoverwaltung.adapter.csvloader.LoaderUtils;
 import de.autoverwaltung.domain.IEinzigartig;
 import de.autoverwaltung.domain.fahrzeug.Auto;
 import de.autoverwaltung.domain.fahrzeug.Motorrad;
@@ -34,8 +35,8 @@ public class CsvAutoLoaderTest {
         writer.close();
 
         //Act
-        loader = new CsvAutoLoader(tempFile.getAbsolutePath());
-        List<IEinzigartig> autos = loader.loadAutos();
+        loader = new CsvAutoLoader();
+        List<IEinzigartig> autos = LoaderUtils.load(tempFile.getAbsolutePath(), new CsvAutoLoader());
         assertNotNull("Liste sollte nicht null sein", autos);
         assertFalse("Liste sollte nicht leer sein", autos.isEmpty());
         Auto auto = (Auto) autos.get(0);

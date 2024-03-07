@@ -1,40 +1,14 @@
 package de.autoverwaltung.adapter.csvloader;
 
-import de.autoverwaltung.domain.IEinzigartig;
 import de.autoverwaltung.domain.fahrzeug.Motorrad;
 import de.autoverwaltung.domain.fahrzeug.MotorradTyp;
 import de.autoverwaltung.domain.fahrzeug.Waehrung;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class CsvMotorradLoader {
-    private String csvFilePath;
+public class CsvMotorradLoader implements ParserInterface{
 
-    public CsvMotorradLoader(String csvFilePath) {
-        this.csvFilePath = csvFilePath;
-    }
-
-    public <T extends IEinzigartig> List<T> loadMotorraeder() {
-        List<T> motorradListe = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
-            String line;
-            br.readLine(); // Überspringen der Kopfzeile
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
-                Motorrad motorrad = parseMotorrad(values);
-                motorradListe.add((T) motorrad);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return motorradListe;
-    }
-
-    private Motorrad parseMotorrad(String[] values) {
+    @Override
+    public Object parse(String[] values) {
         String id = values[0];
         String stellPlatzID = values[1];
         String marke = values[2];
@@ -56,6 +30,5 @@ public class CsvMotorradLoader {
         motorrad.setSeitenstaenderBeidseitig(seitenstaenderBeidseitig);
         return motorrad;
     }
-
 }
 

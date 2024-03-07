@@ -137,6 +137,7 @@ public class CsvFahrzeugHandler implements ICsvUpdater {
                     motorrad.getMarke(),
                     motorrad.getModell(),
                     String.valueOf(motorrad.getPreis()),
+                    String.valueOf(motorrad.getWaehrung()),
                     String.valueOf(motorrad.getKilometer()),
                     String.valueOf(motorrad.isTuev()),
                     String.valueOf(motorrad.isZweisitzer()),
