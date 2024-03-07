@@ -26,7 +26,7 @@ public class GebaeudeStellplatzManager {
 
     public <T extends IEinzigartig> List<Stellplatz> getBelegteStellplaetzeInGebaeude() {
         List<Stellplatz> allePlätze = getStellplaetzeInGebaeude();
-        return allePlätze.stream().filter(el -> el.getFahrzeugID() != null).collect(Collectors.toList());
+        return allePlätze.stream().filter(el -> (el.getFahrzeugID() != null && el.getFahrzeugID() != "")).collect(Collectors.toList());
     }
     public <T extends IEinzigartig> List<Stellplatz> getNichtBelegteStellplaetzeInGebaeude() {
         List<Stellplatz> allePlätze = getStellplaetzeInGebaeude();
