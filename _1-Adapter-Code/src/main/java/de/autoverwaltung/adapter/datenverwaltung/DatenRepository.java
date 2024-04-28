@@ -9,11 +9,15 @@ public class DatenRepository<T extends IEinzigartig>  {
     private static DatenRepository<?> instance;
     private final Map<String, IEinzigartig> repository = new HashMap<>();
 
+    private static Object lock = new Object();
+
     public static synchronized <T extends IEinzigartig> DatenRepository<T> getInstance() {
-        if (instance == null) {
-            instance = new DatenRepository();
+        synchronized (lock) {
+            if (instance == null) {
+                instance = new DatenRepository<>();
+            }
+            return (DatenRepository<T>) instance;
         }
-        return (DatenRepository<T>) instance;
     }
 
     public Map<String, IEinzigartig> getRepository() {
